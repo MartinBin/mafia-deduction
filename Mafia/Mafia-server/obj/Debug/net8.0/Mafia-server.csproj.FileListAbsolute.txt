@@ -1,0 +1,14 @@
+/Users/martynasbinisevicius/RiderProjects/Mafia/Mafia-server/bin/Debug/net8.0/Mafia-server
+/Users/martynasbinisevicius/RiderProjects/Mafia/Mafia-server/bin/Debug/net8.0/Mafia-server.deps.json
+/Users/martynasbinisevicius/RiderProjects/Mafia/Mafia-server/bin/Debug/net8.0/Mafia-server.runtimeconfig.json
+/Users/martynasbinisevicius/RiderProjects/Mafia/Mafia-server/bin/Debug/net8.0/Mafia-server.dll
+/Users/martynasbinisevicius/RiderProjects/Mafia/Mafia-server/bin/Debug/net8.0/Mafia-server.pdb
+/Users/martynasbinisevicius/RiderProjects/Mafia/Mafia-server/obj/Debug/net8.0/Mafia-server.GeneratedMSBuildEditorConfig.editorconfig
+/Users/martynasbinisevicius/RiderProjects/Mafia/Mafia-server/obj/Debug/net8.0/Mafia-server.AssemblyInfoInputs.cache
+/Users/martynasbinisevicius/RiderProjects/Mafia/Mafia-server/obj/Debug/net8.0/Mafia-server.AssemblyInfo.cs
+/Users/martynasbinisevicius/RiderProjects/Mafia/Mafia-server/obj/Debug/net8.0/Mafia-server.csproj.CoreCompileInputs.cache
+/Users/martynasbinisevicius/RiderProjects/Mafia/Mafia-server/obj/Debug/net8.0/Mafia-server.dll
+/Users/martynasbinisevicius/RiderProjects/Mafia/Mafia-server/obj/Debug/net8.0/refint/Mafia-server.dll
+/Users/martynasbinisevicius/RiderProjects/Mafia/Mafia-server/obj/Debug/net8.0/Mafia-server.pdb
+/Users/martynasbinisevicius/RiderProjects/Mafia/Mafia-server/obj/Debug/net8.0/Mafia-server.genruntimeconfig.cache
+/Users/martynasbinisevicius/RiderProjects/Mafia/Mafia-server/obj/Debug/net8.0/ref/Mafia-server.dll
