@@ -1,25 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "/Users/martynasbinisevicius/RiderProjects/Mafia/Mafia-server/Mafia-server.csproj": {}
+    "C:\\Users\\robot\\Documents\\GitHub\\mafia-deduction\\Mafia\\Mafia-server\\Mafia-server.csproj": {}
   },
   "projects": {
-    "/Users/martynasbinisevicius/RiderProjects/Mafia/Mafia-server/Mafia-server.csproj": {
+    "C:\\Users\\robot\\Documents\\GitHub\\mafia-deduction\\Mafia\\Mafia-server\\Mafia-server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/martynasbinisevicius/RiderProjects/Mafia/Mafia-server/Mafia-server.csproj",
+        "projectUniqueName": "C:\\Users\\robot\\Documents\\GitHub\\mafia-deduction\\Mafia\\Mafia-server\\Mafia-server.csproj",
         "projectName": "Mafia-server",
-        "projectPath": "/Users/martynasbinisevicius/RiderProjects/Mafia/Mafia-server/Mafia-server.csproj",
-        "packagesPath": "/Users/martynasbinisevicius/.nuget/packages/",
-        "outputPath": "/Users/martynasbinisevicius/RiderProjects/Mafia/Mafia-server/obj/",
+        "projectPath": "C:\\Users\\robot\\Documents\\GitHub\\mafia-deduction\\Mafia\\Mafia-server\\Mafia-server.csproj",
+        "packagesPath": "C:\\Users\\robot\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\robot\\Documents\\GitHub\\mafia-deduction\\Mafia\\Mafia-server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/martynasbinisevicius/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\robot\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,6 +35,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -53,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
