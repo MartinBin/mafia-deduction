@@ -19,6 +19,8 @@ namespace Mafia_server
                 await Clients.Others.SendAsync("PlayerJoined", playerId, username);
                 await UpdatePlayerList();
                 Logger.Log(LogType.Info, $"Player {username} (ID: {playerId}) joined the game.");
+                string joinMessage = $"{username} has joined the game!";
+                await SendMessage("Server", joinMessage);
             }
             else
             {
@@ -35,6 +37,8 @@ namespace Mafia_server
                 Globals.clients.Remove(client.PlayerID);
                 await Clients.Others.SendAsync("PlayerLeft", client.PlayerID, client.Username);
                 Logger.Log(LogType.Info, $"Player {client.Username} (ID: {client.PlayerID}) disconnected");
+                string joinMessage = $"{client.Username} has left the game!";
+                await Clients.All.SendAsync("ReceiveMessage", "Server", joinMessage);
                 
                 await UpdatePlayerList();
             }
@@ -47,5 +51,10 @@ namespace Mafia_server
             await Clients.All.SendAsync("PlayerList", players);
         }
         // Add other game-related methods here
+        
+        public async Task SendMessage(string username, string message)
+        {
+            await Clients.All.SendAsync("ReceiveMessage", username, message);
+        }
     }
 }

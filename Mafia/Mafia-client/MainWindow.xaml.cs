@@ -22,7 +22,7 @@ namespace Mafia_client
         {
             InitializeComponent();
             mainMenuControl = new MainMenuControl();
-            lobbyControl = new LobbyControl();
+            //lobbyControl = new LobbyControl(hubConnection);
             
             mainMenuControl.JoinGameClicked += MainMenuControl_JoinGameClicked;
             mainMenuControl.ExitGameClicked += MainMenuControl_ExitGameClicked;
@@ -46,6 +46,7 @@ namespace Mafia_client
             Application.Current.Shutdown();
         }
 
+
         private async Task ConnectToServer(string serverIp)
         {
             try
@@ -64,6 +65,7 @@ namespace Mafia_client
                 await hubConnection.InvokeAsync("JoinGame", playerName);
 
                 // Switch to lobby interface
+                lobbyControl = new LobbyControl(hubConnection,playerName);
                 MainContent.Content = lobbyControl;
                 //lobbyControl.UpdatePlayerList(new List<string> { playerName }); // Add the current player
             }
@@ -96,7 +98,6 @@ namespace Mafia_client
                     // TODO: Switch to game interface
                 });
             });
-
             // Add more event handlers as needed
         }
 
