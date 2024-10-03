@@ -1,40 +1,38 @@
 ﻿using Mafia_server;
-using System;
-using System.Threading;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace Mafia_server
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            var builder = WebApplication.CreateBuilder(args);
+
+            // Completely disable ASP.NET Core logging
+            builder.Logging.ClearProviders();
+            builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
+            builder.Logging.SetMinimumLevel(LogLevel.None);
+
+            builder.Services.AddSignalR();
+
+            var app = builder.Build();
+
+            // Disable the development exception page
+            app.UseExceptionHandler("/Error");
+
+            app.MapHub<GameHub>("/gamehub");
+
             Globals.serverIsRunning = true;
             Logger.Initialize(ConsoleColor.Green);
 
-            Thread _gameThread = new Thread(new ThreadStart(GameLogicThread));
-            _gameThread.Start();
-            General.StartServer();
-        }
+            Console.WriteLine("Server started. Press Ctrl+C to shut down.");
 
-        private static void GameLogicThread()
-        {
-            Logger.Log(LogType.info1, "Game thread started. Running at " + Constants.TICKS_PER_SEC + " ticks per second");
-            // Game logic would go here
-            DateTime _lastLoop = DateTime.Now;
-            DateTime _nextLoop = _lastLoop.AddMilliseconds(Constants.MS_PER_TICK);
-            while (Globals.serverIsRunning)
-            {
-                while (_nextLoop < DateTime.Now)
-                {
-                    Logger.WriteLogs();
-                    _lastLoop = _nextLoop;
-                    _nextLoop = _nextLoop.AddMilliseconds(Constants.MS_PER_TICK);
-                    if (_nextLoop > DateTime.Now)
-                    {
-                        Thread.Sleep(_nextLoop - DateTime.Now);
-                    }
-                }
-            } 
-        } 
+            app.Run();
+        }
     }
 }
