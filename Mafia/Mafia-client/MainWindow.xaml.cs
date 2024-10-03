@@ -1,34 +1,112 @@
-﻿using System.Text;
+﻿using System;
+using System.Text.Json;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Microsoft.AspNetCore.SignalR.Client;
+using System.Threading.Tasks;
 
-namespace Mafia_client;
-
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
-public partial class MainWindow : Window
+namespace Mafia_client
 {
-    public MainWindow()
+    public class Player
     {
-        InitializeComponent();
+        public int playerID { get; set; }
+        public string username { get; set; }
     }
-
-    private void CloseGame(object sender, RoutedEventArgs e)
+    public partial class MainWindow : Window
     {
-        System.Windows.Application.Current.Shutdown();
-    }
+        private HubConnection hubConnection;
+        private string playerName;
+        private MainMenuControl mainMenuControl;
+        private LobbyControl lobbyControl;
 
-    private void OpenJoinPage(object sender, RoutedEventArgs e)
-    {
-        Uri uri = new Uri("Join.xaml", UriKind.Relative);
-        MainFrame.Navigate(uri);
+        public MainWindow()
+        {
+            InitializeComponent();
+            mainMenuControl = new MainMenuControl();
+            lobbyControl = new LobbyControl();
+            
+            mainMenuControl.JoinGameClicked += MainMenuControl_JoinGameClicked;
+            mainMenuControl.ExitGameClicked += MainMenuControl_ExitGameClicked;
+
+            MainContent.Content = mainMenuControl;
+        }
+
+        private void MainMenuControl_JoinGameClicked(object sender, EventArgs e)
+        {
+            var joinWindow = new JoinWindow();
+            if (joinWindow.ShowDialog() == true)
+            {
+                string serverIp = joinWindow.ServerIp;
+                playerName = joinWindow.PlayerName;
+                _ = ConnectToServer(serverIp);
+            }
+        }
+
+        private void MainMenuControl_ExitGameClicked(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private async Task ConnectToServer(string serverIp)
+        {
+            try
+            {
+                hubConnection = new HubConnectionBuilder()
+                    .WithUrl($"http://{serverIp}/gamehub")
+                    .WithAutomaticReconnect()
+                    .Build();
+
+                SetupSignalREventHandlers();
+
+                await hubConnection.StartAsync();
+                StatusText.Text = "Connected to server";
+                
+                // Join the game
+                await hubConnection.InvokeAsync("JoinGame", playerName);
+
+                // Switch to lobby interface
+                MainContent.Content = lobbyControl;
+                //lobbyControl.UpdatePlayerList(new List<string> { playerName }); // Add the current player
+            }
+            catch (Exception ex)
+            {
+                StatusText.Text = "Connection failed";
+                MessageBox.Show($"Error connecting to server: {ex.Message}");
+            }
+        }
+
+        private void SetupSignalREventHandlers()
+        {
+            hubConnection.On<JsonElement>("PlayerList", (jsonElement) =>
+            {
+                var playerList = JsonSerializer.Deserialize<List<Player>>(jsonElement.GetRawText());
+                
+                Dispatcher.Invoke(() =>
+                {
+                    var players = playerList.Select(p => $"{p.username} (ID: {p.playerID})").ToList();
+                    lobbyControl.UpdatePlayerList(players);
+                    StatusText.Text = $"Players in lobby: {playerList.Count}";
+                });
+            });
+
+            hubConnection.On("GameStarted", () =>
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    StatusText.Text = "Game is starting...";
+                    // TODO: Switch to game interface
+                });
+            });
+
+            // Add more event handlers as needed
+        }
+
+        protected override async void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            if (hubConnection != null && hubConnection.State == HubConnectionState.Connected)
+            {
+                await hubConnection.StopAsync();
+            }
+            base.OnClosing(e);
+        }
     }
 }

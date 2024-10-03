@@ -1,36 +1,29 @@
-namespace Mafia_server;
+using Microsoft.AspNetCore.SignalR;
 
-public class ServerSend
+namespace Mafia_server
 {
-    public static void SendDataTo(int _playerID, byte[] _data)
+    public class ServerSend
     {
-        try
+        private readonly IHubContext<GameHub> _hubContext;
+
+        public ServerSend(IHubContext<GameHub> hubContext)
         {
-            if (Globals.clients[_playerID].socket != null)
+            _hubContext = hubContext;
+        }
+
+        public async Task SendToPlayer(int playerId, string method, params object[] args)
+        {
+            if (Globals.clients.TryGetValue(playerId, out var client))
             {
-                ByteBuffer _buffer = new ByteBuffer();
-                _buffer.WriteInt(_data.GetUpperBound(0) - _data.GetLowerBound(0) + 1);
-                _buffer.WriteBytes(_data);
-                
-                Globals.clients[_playerID].stream.BeginWrite(_buffer.ToArray(), 0, _buffer.ToArray().Length, null, null);
-                _buffer.Dispose();
+                await _hubContext.Clients.Client(client.ConnectionId).SendAsync(method, args);
             }
         }
-        catch (Exception _ex)
+
+        public async Task SendToAllPlayers(string method, params object[] args)
         {
-            Logger.Log(LogType.error, "Error sending data to player " + _playerID + ": " + _ex);
+            await _hubContext.Clients.Group("Players").SendAsync(method, args);
         }
-    }
-    
-    public static void Welcome(int _sendToPlayer, string _msg)
-    {
-        ByteBuffer _buffer = new ByteBuffer();
-        _buffer.WriteInt((int)ServerPackets.welcome);
-        
-        _buffer.WriteString(_msg);
-        _buffer.WriteInt(_sendToPlayer);
-        
-        SendDataTo(_sendToPlayer, _buffer.ToArray());
-        _buffer.Dispose();
+
+        // Add other methods for specific game actions
     }
 }
