@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\robot\Documents\GitHub\mafia-deduction\Mafia\Mafia-client\App.xaml
-42039154929
+51028608780
 
-7-1643649755
+8-614088534
 2131811707657
-JoinWindow.xaml;LobbyControl.xaml;MainMenuControl.xaml;MainWindow.xaml;
+GameWindow.xaml;JoinWindow.xaml;LobbyControl.xaml;MainMenuControl.xaml;MainWindow.xaml;
 
 False
 

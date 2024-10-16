@@ -42,4 +42,5 @@ C:\Users\robot\Documents\GitHub\mafia-deduction\Mafia\Mafia-client\obj\Debug\net
 C:\Users\robot\Documents\GitHub\mafia-deduction\Mafia\Mafia-client\obj\Debug\net8.0-windows\Mafia-client_MarkupCompile.lref
 C:\Users\robot\Documents\GitHub\mafia-deduction\Mafia\Mafia-client\obj\Debug\net8.0-windows\LobbyControl.baml
 C:\Users\robot\Documents\GitHub\mafia-deduction\Mafia\Mafia-client\obj\Debug\net8.0-windows\MainMenuControl.baml
-C:\Users\robot\Documents\GitHub\mafia-deduction\Mafia\Mafia-client\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\robot\Documents\GitHub\mafia-deduction\Mafia\Mafia-client\obj\Debug\net8.0-windows\GameWindow.baml
+C:\Users\robot\Documents\GitHub\mafia-deduction\Mafia\Mafia-client\obj\Debug\net8.0-windows\GameWindow.g.cs
