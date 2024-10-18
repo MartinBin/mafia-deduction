@@ -17,7 +17,7 @@ namespace Mafia_server
             builder.Logging.ClearProviders();
             builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
             builder.Logging.SetMinimumLevel(LogLevel.None);
-
+            builder.Services.AddSingleton<GameManager>();
             builder.Services.AddSignalR();
 
             var app = builder.Build();

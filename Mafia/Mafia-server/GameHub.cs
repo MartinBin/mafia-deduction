@@ -5,6 +5,48 @@ namespace Mafia_server
 {
     public class GameHub : Hub
     {
+        private readonly GameManager gameManager;
+        private static bool gameInProgress = false;
+
+        public GameHub(GameManager gameManager)
+        {
+            this.gameManager = gameManager;
+        }
+
+
+        public async Task StartGame()
+        {
+            if (Globals.clients.Count < Constants.MIN_PLAYERS_TO_START)
+            {
+                await Clients.Caller.SendAsync("Error", "Not enough players to start the game");
+                return;
+            }
+
+            var earliestPlayer = Globals.clients.Values.OrderBy(c => c.JoinedAt).First();
+            if (Context.ConnectionId != earliestPlayer.ConnectionId)
+            {
+                await Clients.Caller.SendAsync("Error", "Only the earliest joined player can start the game");
+                return;
+            }
+            gameInProgress=true;
+            List<Player> players = Globals.clients.Values.Select(c => c.Player).ToList();
+            gameManager.AssignCharactersToPlayers(players);
+
+            // Notify players of their assigned characters
+            foreach (var client in Globals.clients.Values)
+            {
+                await Clients.Client(client.ConnectionId).SendAsync("AssignedCharacter", client.Player.Character.GetType().Name);
+            }
+            await Clients.All.SendAsync("GameStarted");
+            await PlayerList();
+        }
+
+        public async Task PlayerList()
+        {
+            var players = Globals.clients.Values.Select(c => new { c.PlayerID, c.Username }).ToList();
+            await Clients.All.SendAsync("SendPlayerList", players);
+        }
+
         public async Task JoinGame(string username)
         {
             // Assign a player ID
@@ -15,17 +57,39 @@ namespace Mafia_server
                 await Groups.AddToGroupAsync(Context.ConnectionId, "Players");
                 Globals.clients[playerId] = new Client(playerId, username, Context.ConnectionId);
                 
-                await Clients.Caller.SendAsync("Welcome", playerId, "Welcome to the server!");
-                await Clients.Others.SendAsync("PlayerJoined", playerId, username);
-                await UpdatePlayerList();
-                Logger.Log(LogType.Info, $"Player {username} (ID: {playerId}) joined the game.");
-                string joinMessage = $"{username} has joined the game!";
-                await SendMessage("Server", joinMessage);
+                if(gameInProgress){
+                    await Clients.Caller.SendAsync("GameInProgress", playerId);
+                }
+                else
+                {
+                    await Clients.Caller.SendAsync("GameJoined", playerId);
+                    await Clients.Caller.SendAsync("Welcome", playerId, "Welcome to the server!");
+                    await Clients.Others.SendAsync("PlayerJoined", playerId, username);
+                    await UpdatePlayerList();
+                    Logger.Log(LogType.Info, $"Player {username} (ID: {playerId}) joined the game.");
+                    string joinMessage = $"{username} has joined the game!";
+                    await SendMessage("Server", joinMessage);
+                    await CheckAndNotifyGameReady();
+                }
             }
             else
             {
                 await Clients.Caller.SendAsync("Error", "Server is full");
                 Logger.Log(LogType.Warning, "Server full");
+            }
+        }
+        
+        private async Task CheckAndNotifyGameReady()
+        {
+            if (Globals.clients.Count >= Constants.MIN_PLAYERS_TO_START)
+            {
+                var earliestPlayer = Globals.clients.Values.OrderBy(c => c.JoinedAt).First();
+                await Clients.Client(earliestPlayer.ConnectionId).SendAsync("CanStartGame", true);
+            }
+            else
+            {
+                var earliestPlayer = Globals.clients.Values.OrderBy(c => c.JoinedAt).First();
+                await Clients.Client(earliestPlayer.ConnectionId).SendAsync("CanStartGame", false);
             }
         }
 
@@ -37,10 +101,17 @@ namespace Mafia_server
                 Globals.clients.Remove(client.PlayerID);
                 await Clients.Others.SendAsync("PlayerLeft", client.PlayerID, client.Username);
                 Logger.Log(LogType.Info, $"Player {client.Username} (ID: {client.PlayerID}) disconnected");
-                string joinMessage = $"{client.Username} has left the game!";
-                await Clients.All.SendAsync("ReceiveMessage", "Server", joinMessage);
-                
-                await UpdatePlayerList();
+                string leaveMessage = $"{client.Username} has left the game!";
+                await SendMessage("Server", leaveMessage);
+                if (gameInProgress)
+                {
+                    await PlayerList();
+                }
+                else
+                {
+                    await UpdatePlayerList();
+                    await CheckAndNotifyGameReady();
+                }
             }
 
             await base.OnDisconnectedAsync(exception);

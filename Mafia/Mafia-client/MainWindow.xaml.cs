@@ -3,6 +3,7 @@ using System.Text.Json;
 using System.Windows;
 using Microsoft.AspNetCore.SignalR.Client;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 
 namespace Mafia_client
 {
@@ -15,8 +16,11 @@ namespace Mafia_client
     {
         private HubConnection hubConnection;
         private string playerName;
+        private int playerID;
         private MainMenuControl mainMenuControl;
         private LobbyControl lobbyControl;
+        private GameWindow gameWindow;
+        public string AssignedCharacter { get; set; }
 
         public MainWindow()
         {
@@ -63,16 +67,30 @@ namespace Mafia_client
                 
                 // Join the game
                 await hubConnection.InvokeAsync("JoinGame", playerName);
-
-                // Switch to lobby interface
-                lobbyControl = new LobbyControl(hubConnection,playerName);
-                MainContent.Content = lobbyControl;
-                //lobbyControl.UpdatePlayerList(new List<string> { playerName }); // Add the current player
             }
             catch (Exception ex)
             {
                 StatusText.Text = "Connection failed";
                 MessageBox.Show($"Error connecting to server: {ex.Message}");
+            }
+        }
+
+        private async Task LeaveLobby()
+        {
+            if (hubConnection != null && hubConnection.State == HubConnectionState.Connected)
+            {
+                try
+                {
+                    await hubConnection.StopAsync();
+                    StatusText.Text = "Left the lobby";
+                    
+                    // Switch back to main menu
+                    MainContent.Content = mainMenuControl;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error leaving lobby: {ex.Message}");
+                }
             }
         }
 
@@ -90,15 +108,34 @@ namespace Mafia_client
                 });
             });
 
-            hubConnection.On("GameStarted", () =>
+            hubConnection.Closed += (error) =>
             {
                 Dispatcher.Invoke(() =>
                 {
-                    StatusText.Text = "Game is starting...";
-                    // TODO: Switch to game interface
+                    StatusText.Text = "Disconnected from server";
+                    MainContent.Content = mainMenuControl;
+                });
+                return Task.CompletedTask;
+            };
+            hubConnection.On<int>("GameJoined", (id) =>
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    playerID = id;
+                    lobbyControl = new LobbyControl(hubConnection, playerName,playerID);
+                    lobbyControl.LeaveGameClicked += LobbyControl_LeaveGameClicked;
+                    MainContent.Content = lobbyControl;
                 });
             });
-            // Add more event handlers as needed
+            hubConnection.On<int>("GameInProgress", (id) =>
+            {
+                Dispatcher.Invoke(() =>
+                {   
+                    playerID = id;
+                    gameWindow = new GameWindow(hubConnection, AssignedCharacter,playerID);
+                    MainContent.Content = gameWindow;
+                });
+            });
         }
 
         protected override async void OnClosing(System.ComponentModel.CancelEventArgs e)
@@ -108,6 +145,17 @@ namespace Mafia_client
                 await hubConnection.StopAsync();
             }
             base.OnClosing(e);
+        }
+
+        private async void LobbyControl_LeaveGameClicked(object sender, EventArgs e)
+        {
+            await LeaveLobby();
+        }
+
+        public void TransitionToGameWindow(HubConnection hubC)
+        {
+            gameWindow = new GameWindow(hubC, AssignedCharacter,playerID);
+            MainContent.Content = gameWindow;
         }
     }
 }

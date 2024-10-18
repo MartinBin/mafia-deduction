@@ -7,6 +7,7 @@ namespace Mafia_server
         public string ConnectionId { get; private set; }
         public bool IsPlaying { get; set; } = false;
         public Player Player { get; private set; }
+        public DateTime JoinedAt { get; private set; }
 
         public Client(int playerId, string username, string connectionId)
         {
@@ -14,6 +15,7 @@ namespace Mafia_server
             Username = username;
             ConnectionId = connectionId;
             Player = new Player(playerId);
+            JoinedAt = DateTime.UtcNow;
         }
     }
 }
