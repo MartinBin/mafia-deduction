@@ -1,0 +1,433 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3F2B5509-2ED6-449A-BA45-43D19EC88794}|Mafia-client\\Mafia-client.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-client\\gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3F2B5509-2ED6-449A-BA45-43D19EC88794}|Mafia-client\\Mafia-client.csproj|solutionrelative:mafia-client\\gamewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F2B5509-2ED6-449A-BA45-43D19EC88794}|Mafia-client\\Mafia-client.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-client\\gamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F2B5509-2ED6-449A-BA45-43D19EC88794}|Mafia-client\\Mafia-client.csproj|solutionrelative:mafia-client\\gamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-server\\character\\evilgoon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|solutionrelative:mafia-server\\character\\evilgoon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-server\\character\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|solutionrelative:mafia-server\\character\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-server\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|solutionrelative:mafia-server\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-server\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|solutionrelative:mafia-server\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-server\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|solutionrelative:mafia-server\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-server\\character\\neutralfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|solutionrelative:mafia-server\\character\\neutralfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-server\\character\\goodfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|solutionrelative:mafia-server\\character\\goodfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-server\\character\\evilspy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|solutionrelative:mafia-server\\character\\evilspy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-server\\character\\evilfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|solutionrelative:mafia-server\\character\\evilfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-server\\character\\characterfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|solutionrelative:mafia-server\\character\\characterfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-server\\serversend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|solutionrelative:mafia-server\\serversend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|solutionrelative:mafia-server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-server\\gamehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|solutionrelative:mafia-server\\gamehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-server\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|solutionrelative:mafia-server\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-server\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|solutionrelative:mafia-server\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F2B5509-2ED6-449A-BA45-43D19EC88794}|Mafia-client\\Mafia-client.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-client\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3F2B5509-2ED6-449A-BA45-43D19EC88794}|Mafia-client\\Mafia-client.csproj|solutionrelative:mafia-client\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F2B5509-2ED6-449A-BA45-43D19EC88794}|Mafia-client\\Mafia-client.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-client\\joinwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3F2B5509-2ED6-449A-BA45-43D19EC88794}|Mafia-client\\Mafia-client.csproj|solutionrelative:mafia-client\\joinwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F2B5509-2ED6-449A-BA45-43D19EC88794}|Mafia-client\\Mafia-client.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-client\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F2B5509-2ED6-449A-BA45-43D19EC88794}|Mafia-client\\Mafia-client.csproj|solutionrelative:mafia-client\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F2B5509-2ED6-449A-BA45-43D19EC88794}|Mafia-client\\Mafia-client.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-client\\mainmenucontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3F2B5509-2ED6-449A-BA45-43D19EC88794}|Mafia-client\\Mafia-client.csproj|solutionrelative:mafia-client\\mainmenucontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-server\\globals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|solutionrelative:mafia-server\\globals.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-server\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|solutionrelative:mafia-server\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-server\\logtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|solutionrelative:mafia-server\\logtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|c:\\users\\gustas\\desktop\\opp\\mafia-deduction\\mafia\\mafia-server\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22B8F495-7A5A-4BAD-9F24-8F0C49613CB9}|Mafia-server\\Mafia-server.csproj|solutionrelative:mafia-server\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-client\\GameWindow.xaml",
+              "RelativeDocumentMoniker": "Mafia-client\\GameWindow.xaml",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-client\\GameWindow.xaml",
+              "RelativeToolTip": "Mafia-client\\GameWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-18T08:51:08.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GameWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-client\\GameWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Mafia-client\\GameWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-client\\GameWindow.xaml.cs",
+              "RelativeToolTip": "Mafia-client\\GameWindow.xaml.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T08:51:00.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GoodFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Character\\GoodFactory.cs",
+              "RelativeDocumentMoniker": "Mafia-server\\Character\\GoodFactory.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Character\\GoodFactory.cs",
+              "RelativeToolTip": "Mafia-server\\Character\\GoodFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T08:05:29.265Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EvilSpy.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Character\\EvilSpy.cs",
+              "RelativeDocumentMoniker": "Mafia-server\\Character\\EvilSpy.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Character\\EvilSpy.cs",
+              "RelativeToolTip": "Mafia-server\\Character\\EvilSpy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T08:05:26.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EvilGoon.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Character\\EvilGoon.cs",
+              "RelativeDocumentMoniker": "Mafia-server\\Character\\EvilGoon.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Character\\EvilGoon.cs",
+              "RelativeToolTip": "Mafia-server\\Character\\EvilGoon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T08:04:28.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "EvilFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Character\\EvilFactory.cs",
+              "RelativeDocumentMoniker": "Mafia-server\\Character\\EvilFactory.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Character\\EvilFactory.cs",
+              "RelativeToolTip": "Mafia-server\\Character\\EvilFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T08:04:25.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CharacterFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Character\\CharacterFactory.cs",
+              "RelativeDocumentMoniker": "Mafia-server\\Character\\CharacterFactory.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Character\\CharacterFactory.cs",
+              "RelativeToolTip": "Mafia-server\\Character\\CharacterFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T08:04:22.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Character.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Character\\Character.cs",
+              "RelativeDocumentMoniker": "Mafia-server\\Character\\Character.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Character\\Character.cs",
+              "RelativeToolTip": "Mafia-server\\Character\\Character.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T08:04:16.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Client.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Client.cs",
+              "RelativeDocumentMoniker": "Mafia-server\\Client.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Client.cs",
+              "RelativeToolTip": "Mafia-server\\Client.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T08:16:49.538Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Mafia-server\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Mafia-server\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-04T08:26:26.565Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "NeutralFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Character\\NeutralFactory.cs",
+              "RelativeDocumentMoniker": "Mafia-server\\Character\\NeutralFactory.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Character\\NeutralFactory.cs",
+              "RelativeToolTip": "Mafia-server\\Character\\NeutralFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T08:05:37.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\GameManager.cs",
+              "RelativeDocumentMoniker": "Mafia-server\\GameManager.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\GameManager.cs",
+              "RelativeToolTip": "Mafia-server\\GameManager.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAwBMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T08:05:46.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "MainMenuControl.xaml",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-client\\MainMenuControl.xaml",
+              "RelativeDocumentMoniker": "Mafia-client\\MainMenuControl.xaml",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-client\\MainMenuControl.xaml",
+              "RelativeToolTip": "Mafia-client\\MainMenuControl.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-04T08:17:00.878Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ServerSend.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\ServerSend.cs",
+              "RelativeDocumentMoniker": "Mafia-server\\ServerSend.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\ServerSend.cs",
+              "RelativeToolTip": "Mafia-server\\ServerSend.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T08:14:55.004Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "GameHub.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\GameHub.cs",
+              "RelativeDocumentMoniker": "Mafia-server\\GameHub.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\GameHub.cs",
+              "RelativeToolTip": "Mafia-server\\GameHub.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAzwBgAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T08:16:17.624Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Constants.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Constants.cs",
+              "RelativeDocumentMoniker": "Mafia-server\\Constants.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Constants.cs",
+              "RelativeToolTip": "Mafia-server\\Constants.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T08:18:07.119Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-client\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Mafia-client\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-client\\MainWindow.xaml",
+              "RelativeToolTip": "Mafia-client\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-04T08:16:52.28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ChatHub.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\ChatHub.cs",
+              "RelativeDocumentMoniker": "Mafia-server\\ChatHub.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\ChatHub.cs",
+              "RelativeToolTip": "Mafia-server\\ChatHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T08:14:51.669Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Program.cs",
+              "RelativeDocumentMoniker": "Mafia-server\\Program.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Program.cs",
+              "RelativeToolTip": "Mafia-server\\Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T08:15:02.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "JoinWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-client\\JoinWindow.xaml",
+              "RelativeDocumentMoniker": "Mafia-client\\JoinWindow.xaml",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-client\\JoinWindow.xaml",
+              "RelativeToolTip": "Mafia-client\\JoinWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-04T08:17:10.237Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-client\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "Mafia-client\\AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-client\\AssemblyInfo.cs",
+              "RelativeToolTip": "Mafia-client\\AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T08:17:32.178Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Globals.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Globals.cs",
+              "RelativeDocumentMoniker": "Mafia-server\\Globals.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Globals.cs",
+              "RelativeToolTip": "Mafia-server\\Globals.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T08:16:14.219Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Logger.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Logger.cs",
+              "RelativeDocumentMoniker": "Mafia-server\\Logger.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Logger.cs",
+              "RelativeToolTip": "Mafia-server\\Logger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T08:16:06.714Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "LogType.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\LogType.cs",
+              "RelativeDocumentMoniker": "Mafia-server\\LogType.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\LogType.cs",
+              "RelativeToolTip": "Mafia-server\\LogType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T08:16:04.91Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Player.cs",
+              "RelativeDocumentMoniker": "Mafia-server\\Player.cs",
+              "ToolTip": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-server\\Player.cs",
+              "RelativeToolTip": "Mafia-server\\Player.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T08:16:02Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

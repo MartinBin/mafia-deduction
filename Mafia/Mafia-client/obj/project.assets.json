@@ -754,23 +754,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\robot\\.nuget\\packages\\": {},
+    "C:\\Users\\Gustas\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\robot\\Documents\\GitHub\\mafia-deduction\\Mafia\\Mafia-client\\Mafia-client.csproj",
+      "projectUniqueName": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-client\\Mafia-client.csproj",
       "projectName": "Mafia-client",
-      "projectPath": "C:\\Users\\robot\\Documents\\GitHub\\mafia-deduction\\Mafia\\Mafia-client\\Mafia-client.csproj",
-      "packagesPath": "C:\\Users\\robot\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\robot\\Documents\\GitHub\\mafia-deduction\\Mafia\\Mafia-client\\obj\\",
+      "projectPath": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-client\\Mafia-client.csproj",
+      "packagesPath": "C:\\Users\\Gustas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gustas\\Desktop\\opp\\mafia-deduction\\Mafia\\Mafia-client\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\robot\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Gustas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -827,7 +827,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
