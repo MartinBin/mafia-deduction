@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using Mafia_client.Factory;
 using Mafia_client.Prototype;
 using Microsoft.AspNetCore.SignalR.Client;
 
@@ -22,6 +23,9 @@ public partial class GameWindow : UserControl, INotifyPropertyChanged, IDisposab
     private readonly HubConnection hubConnection;
     private readonly string assignedCharacter;
     private int playerID;
+    
+    private static readonly List<string> AvailablePetTypes = new List<string> { "cat", "dog" };
+    private static readonly Random RandomGenerator = new Random();
 
     public GameWindow(HubConnection connection, string character, int playerID, Boolean playerCanSeeEvilChat)
     {
@@ -86,8 +90,16 @@ public partial class GameWindow : UserControl, INotifyPropertyChanged, IDisposab
         textAlignment: TextAlignment.Center,
         width: 100);
 
+    private string GetRandomPetType()
+    {
+        int index = RandomGenerator.Next(AvailablePetTypes.Count);
+        return AvailablePetTypes[index];
+    }
+    
     private void AddPlayerToCanvas(string playerName, double relativeX, double relativeY, int playerID)
     {
+        string petType = GetRandomPetType();
+        
         Ellipse playerAvatar = playerAvatarPrototype.Clone();
         TextBlock nameLabel = nameLabelPrototype.Clone();
         nameLabel.Text = playerName;
@@ -113,7 +125,14 @@ public partial class GameWindow : UserControl, INotifyPropertyChanged, IDisposab
             GameCanvas.Children.Add(roleLabel);
         }
         
-
+        IPet pet = PetFactory.CreatePet(petType);
+        if (pet != null)
+        {
+            Image petImage = pet.GetPetImage();
+            Canvas.SetLeft(petImage, relativeX * GameCanvas.Width + 35); // Position pet right to the player
+            Canvas.SetTop(petImage, relativeY * GameCanvas.Height - 25);
+            GameCanvas.Children.Add(petImage);
+        } 
     }
     private void SetupSignalREventHandlers()
     {

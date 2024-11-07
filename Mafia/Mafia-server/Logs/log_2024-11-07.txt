@@ -131,3 +131,69 @@
 [19:56:13] Info: Server: laslkdjowijad has left the game!
 [19:56:17] Info: Player adwasd (ID: 2) disconnected
 [19:56:17] Info: Server: adwasd has left the game!
+[20:23:00] Info: Player dawd (ID: 1) joined the game.
+[20:23:00] Info: Server: dawd has joined the game!
+[20:23:03] Info: Player dawd (ID: 2) joined the game.
+[20:23:03] Info: Server: dawd has joined the game!
+[20:23:05] Info: Game started
+[20:23:15] Info: Player dawd (ID: 1) disconnected
+[20:23:15] Info: Server: dawd has left the game!
+[20:23:15] Info: Player dawd (ID: 2) disconnected
+[20:23:15] Info: Server: dawd has left the game!
+[20:26:08] Info: Player dawsd (ID: 1) joined the game.
+[20:26:08] Info: Server: dawsd has joined the game!
+[20:26:59] Info: Player dawds (ID: 2) joined the game.
+[20:26:59] Info: Server: dawds has joined the game!
+[20:27:00] Info: Game started
+[20:27:05] Info: Player dawds (ID: 2) disconnected
+[20:27:05] Info: Server: dawds has left the game!
+[20:27:06] Info: Player dawsd (ID: 1) disconnected
+[20:27:06] Info: Server: dawsd has left the game!
+[20:27:42] Info: Player dwassd (ID: 1) joined the game.
+[20:27:42] Info: Server: dwassd has joined the game!
+[20:27:46] Info: Player awdsa (ID: 2) joined the game.
+[20:27:46] Info: Server: awdsa has joined the game!
+[20:27:47] Info: Game started
+[20:29:32] Info: Player dwassd (ID: 1) disconnected
+[20:29:32] Info: Player awdsa (ID: 2) disconnected
+[20:29:32] Info: Server: dwassd has left the game!
+[20:29:32] Info: Server: awdsa has left the game!
+[20:29:59] Info: Player dawds (ID: 1) joined the game.
+[20:29:59] Info: Server: dawds has joined the game!
+[20:30:00] Info: Game started
+[20:30:07] Info: Player dawds (ID: 1) disconnected
+[20:30:07] Info: Server: dawds has left the game!
+[20:30:32] Info: Player awdas (ID: 1) joined the game.
+[20:30:32] Info: Server: awdas has joined the game!
+[20:30:34] Info: Game started
+[20:31:19] Info: Player awdas (ID: 1) disconnected
+[20:31:19] Info: Server: awdas has left the game!
+[20:32:17] Info: Player daw (ID: 1) joined the game.
+[20:32:17] Info: Server: daw has joined the game!
+[20:32:18] Info: Game started
+[20:32:21] Info: Player daw (ID: 1) disconnected
+[20:32:21] Info: Server: daw has left the game!
+[20:33:07] Info: Player dwasd (ID: 1) joined the game.
+[20:33:07] Info: Server: dwasd has joined the game!
+[20:33:08] Info: Game started
+[20:33:47] Info: Player dwasd (ID: 1) disconnected
+[20:33:47] Info: Server: dwasd has left the game!
+[20:34:11] Info: Player dawds (ID: 1) joined the game.
+[20:34:11] Info: Server: dawds has joined the game!
+[20:34:13] Info: Game started
+[20:34:34] Info: Player dawds (ID: 1) disconnected
+[20:34:34] Info: Server: dawds has left the game!
+[20:36:09] Info: Player dawg (ID: 1) joined the game.
+[20:36:09] Info: Server: dawg has joined the game!
+[20:36:10] Info: Game started
+[20:36:30] Info: Player dawg (ID: 1) disconnected
+[20:36:30] Info: Server: dawg has left the game!
+[20:41:00] Info: Player dawd (ID: 1) joined the game.
+[20:41:00] Info: Server: dawd has joined the game!
+[20:41:03] Info: Player ddawds (ID: 2) joined the game.
+[20:41:03] Info: Server: ddawds has joined the game!
+[20:41:04] Info: Game started
+[20:41:29] Info: Player dawd (ID: 1) disconnected
+[20:41:29] Info: Server: dawd has left the game!
+[20:41:30] Info: Player ddawds (ID: 2) disconnected
+[20:41:30] Info: Server: ddawds has left the game!
