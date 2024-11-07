@@ -1,0 +1,2 @@
+[11:33:18] Info: Player Kazys (ID: 1) joined the game.
+[11:33:32] Info: Player Kazys (ID: 1) disconnected

@@ -11,6 +11,7 @@ namespace Mafia_server
         public GameHub(GameManager gameManager)
         {
             this.gameManager = gameManager;
+            Logger.getInstance.SetLogFolderPath(".\\Logs");
         }
 
 
@@ -66,7 +67,7 @@ namespace Mafia_server
                     await Clients.Caller.SendAsync("Welcome", playerId, "Welcome to the server!");
                     await Clients.Others.SendAsync("PlayerJoined", playerId, username);
                     await UpdatePlayerList();
-                    Logger.Log(LogType.Info, $"Player {username} (ID: {playerId}) joined the game.");
+                    Logger.getInstance.Log(LogType.Info, $"Player {username} (ID: {playerId}) joined the game.");
                     string joinMessage = $"{username} has joined the game!";
                     await SendMessage("Server", joinMessage);
                     await CheckAndNotifyGameReady();
@@ -75,7 +76,7 @@ namespace Mafia_server
             else
             {
                 await Clients.Caller.SendAsync("Error", "Server is full");
-                Logger.Log(LogType.Warning, "Server full");
+                Logger.getInstance.Log(LogType.Warning, "Server full");
             }
         }
         
@@ -100,7 +101,7 @@ namespace Mafia_server
             {
                 Globals.clients.Remove(client.PlayerID);
                 await Clients.Others.SendAsync("PlayerLeft", client.PlayerID, client.Username);
-                Logger.Log(LogType.Info, $"Player {client.Username} (ID: {client.PlayerID}) disconnected");
+                Logger.getInstance.Log(LogType.Info, $"Player {client.Username} (ID: {client.PlayerID}) disconnected");
                 string leaveMessage = $"{client.Username} has left the game!";
                 await SendMessage("Server", leaveMessage);
                 if (gameInProgress)
