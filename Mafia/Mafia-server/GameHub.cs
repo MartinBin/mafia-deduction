@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
+using Mafia_server.Decorator;
 
 namespace Mafia_server
 {
@@ -32,7 +33,23 @@ namespace Mafia_server
             gameInProgress=true;
             List<Player> players = Globals.clients.Values.Select(c => c.Player).ToList();
             gameManager.AssignCharactersToPlayers(players);
+            
+            string clientImagePath = "path/to/image.png";
+            string clientLabel = "VIP";
+            string clientInfo = "Important character information.";
+            
+            foreach (var player in players)
+            {
+                IDecorator character = player.Character;
+        
+                IDecorator decoratedCharacter = new ImageDecorator(
+                    new LabelDecorator(
+                        new InfoDecorator(character, clientInfo), 
+                        clientLabel), 
+                    clientImagePath);
 
+                decoratedCharacter.Render();
+            }
             // Notify players of their assigned characters
             foreach (var client in Globals.clients.Values)
             {

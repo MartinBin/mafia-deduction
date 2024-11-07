@@ -13,18 +13,12 @@ public class GoodFactory : CharacterFactory
         {
             case 0:
                 character = new GoodGoon();
-                character.AddAbility(new VoteStrategy());
                 break;
             case 1:
                 character = new GoodSpy();
-                character.AddAbility(new SpyStrategy());
-                character.AddAbility(new ArrestStrategy());
-                character.AddAbility(new VoteStrategy());
                 break;
             case 2:
                 character = new Medic();
-                character.AddAbility(new HealStrategy());
-                character.AddAbility(new VoteStrategy());
                 break;
             default:
                 throw new InvalidOperationException("Invalid choice");
