@@ -17,6 +17,7 @@ namespace Mafia_client
         private HubConnection hubConnection;
         private string playerName;
         private int playerID;
+        public Boolean playerCanSeeEvilChat { get; set; }
         private MainMenuControl mainMenuControl;
         private LobbyControl lobbyControl;
         private GameWindow gameWindow;
@@ -127,12 +128,13 @@ namespace Mafia_client
                     MainContent.Content = lobbyControl;
                 });
             });
-            hubConnection.On<int>("GameInProgress", (id) =>
+            hubConnection.On<int,Boolean>("GameInProgress", (id,canSee) =>
             {
                 Dispatcher.Invoke(() =>
                 {   
                     playerID = id;
-                    gameWindow = new GameWindow(hubConnection, AssignedCharacter,playerID);
+                    Boolean playerCanSeeEvilChat = canSee;
+                    gameWindow = new GameWindow(hubConnection, AssignedCharacter,playerID,playerCanSeeEvilChat);
                     MainContent.Content = gameWindow;
                 });
             });
@@ -154,7 +156,7 @@ namespace Mafia_client
 
         public void TransitionToGameWindow(HubConnection hubC)
         {
-            gameWindow = new GameWindow(hubC, AssignedCharacter,playerID);
+            gameWindow = new GameWindow(hubC, AssignedCharacter,playerID,playerCanSeeEvilChat);
             MainContent.Content = gameWindow;
         }
     }

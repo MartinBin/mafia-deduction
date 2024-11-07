@@ -54,9 +54,11 @@ namespace Mafia_server
             foreach (var client in Globals.clients.Values)
             {
                 await Clients.Client(client.ConnectionId).SendAsync("AssignedCharacter", client.Player.Character.GetType().Name);
+                await Clients.Client(client.ConnectionId).SendAsync("CanUseEvilChat", client.Player.Character.CanUseEvilChat);
             }
             await Clients.All.SendAsync("GameStarted");
             await PlayerList();
+            Logger.getInstance.Log(LogType.Info, $"Game started");
         }
 
         public async Task PlayerList()
@@ -143,7 +145,28 @@ namespace Mafia_server
         
         public async Task SendMessage(string username, string message)
         {
+            string fullMessage = $"{username}: {message}";
+            Logger.getInstance.Log(LogType.Info, fullMessage);
             await Clients.All.SendAsync("ReceiveMessage", username, message);
+        }
+        
+        
+        public async Task SendGeneralMessage(int id,string message)
+        {
+            string fullMessage = $"{id}: {message}";
+            Logger.getInstance.Log(LogType.Info, fullMessage);
+            await Clients.All.SendAsync("ReceiveGeneralMessage",id, message);
+        }
+
+        public async Task SendEvilMessage(int id,string message)
+        {
+            string fullMessage = $"{id}: {message}";
+            Logger.getInstance.Log(LogType.Info, fullMessage);
+            var players = Globals.clients.Values.Where(x=>x.Player.Character.CanUseEvilChat).ToList();
+            foreach (var player in players)
+            {
+                await Clients.Client(player.ConnectionId).SendAsync("ReceiveEvilMessage",id, message);
+            }
         }
     }
 }

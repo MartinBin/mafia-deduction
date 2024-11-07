@@ -23,3 +23,99 @@
 [13:24:22] Info: Player sadwa (ID: 3) disconnected
 [13:24:23] Info: Player dasc (ID: 1) disconnected
 [13:24:24] Info: Player asc (ID: 2) disconnected
+[13:38:52] Info: Player sad (ID: 1) joined the game.
+[13:38:55] Info: Player sadw (ID: 2) joined the game.
+[13:39:00] Info: Player dawv (ID: 3) joined the game.
+[13:39:04] Info: Player sdawd (ID: 4) joined the game.
+[13:39:49] Info: Player sad (ID: 1) disconnected
+[13:39:49] Info: Player dawv (ID: 3) disconnected
+[13:39:51] Info: Player sdawd (ID: 4) disconnected
+[13:39:51] Info: Player sadw (ID: 2) disconnected
+[13:40:19] Info: Player asdwa (ID: 1) joined the game.
+[13:40:24] Info: Player sdaw (ID: 2) joined the game.
+[13:40:44] Info: Player asdwa (ID: 1) disconnected
+[13:40:45] Info: Player sdaw (ID: 2) disconnected
+[13:42:15] Info: Player wadwa (ID: 1) joined the game.
+[13:42:18] Info: Player adwa (ID: 2) joined the game.
+[13:42:19] Info: Game started
+[13:42:26] Info: Player wadwa (ID: 1) disconnected
+[13:42:27] Info: Player adwa (ID: 2) disconnected
+[13:44:36] Info: Player adwad (ID: 1) joined the game.
+[13:44:40] Info: Player awdasd (ID: 2) joined the game.
+[13:44:42] Info: Game started
+[13:45:11] Info: Player awdasd (ID: 2) disconnected
+[13:45:31] Info: Player adwad (ID: 1) disconnected
+[13:47:21] Info: Player dawdasd (ID: 1) joined the game.
+[13:47:25] Info: Player dawds (ID: 2) joined the game.
+[13:47:26] Info: Game started
+[13:47:48] Info: Player dawds (ID: 2) disconnected
+[13:47:49] Info: Player dawdasd (ID: 1) disconnected
+[13:50:18] Info: Player awds (ID: 1) joined the game.
+[13:50:22] Info: Player dawds (ID: 2) joined the game.
+[13:50:23] Info: Game started
+[13:55:12] Info: Player awds (ID: 1) disconnected
+[13:55:14] Info: Player dawds (ID: 2) disconnected
+[13:56:31] Info: Player awdsa (ID: 1) joined the game.
+[13:56:43] Info: Player adwdas (ID: 2) joined the game.
+[13:56:44] Info: Game started
+[13:56:58] Info: Player awdsa (ID: 1) disconnected
+[13:56:58] Info: Player adwdas (ID: 2) disconnected
+[13:57:59] Info: Player awdsa (ID: 1) joined the game.
+[13:58:05] Info: Player awdsa (ID: 2) joined the game.
+[13:58:05] Info: Game started
+[13:58:15] Info: Player awdsa (ID: 2) disconnected
+[13:58:16] Info: Player awdsa (ID: 1) disconnected
+[14:00:13] Info: Player dawd (ID: 1) joined the game.
+[14:00:16] Info: Player adwasd (ID: 2) joined the game.
+[14:00:17] Info: Game started
+[14:01:04] Info: Player adwasd (ID: 2) disconnected
+[14:01:05] Info: Player dawd (ID: 1) disconnected
+[14:02:50] Info: Player awdsa (ID: 1) joined the game.
+[14:02:54] Info: Player adwas (ID: 2) joined the game.
+[14:02:55] Info: Game started
+[14:03:01] Info: Player adwas (ID: 2) disconnected
+[14:03:02] Info: Player awdsa (ID: 1) disconnected
+[14:12:20] Info: Player awds (ID: 1) joined the game.
+[14:12:23] Info: Player adsa (ID: 2) joined the game.
+[14:12:24] Info: Game started
+[14:12:40] Info: Player adsa (ID: 2) disconnected
+[14:12:41] Info: Player awds (ID: 1) disconnected
+[14:17:40] Info: Player test (ID: 1) joined the game.
+[14:17:45] Info: Player test (ID: 2) joined the game.
+[14:17:45] Info: Game started
+[14:18:05] Info: Player test (ID: 1) disconnected
+[14:18:06] Info: Player test (ID: 2) disconnected
+[14:20:02] Info: Player dasd (ID: 1) joined the game.
+[14:20:13] Info: Player dawsd (ID: 2) joined the game.
+[14:20:16] Info: Player adwdasd (ID: 3) joined the game.
+[14:20:18] Info: Game started
+[14:21:39] Info: Player dasd (ID: 1) disconnected
+[14:21:51] Info: Player adwdasd (ID: 3) disconnected
+[14:22:53] Info: Player tewsd (ID: 1) joined the game.
+[14:23:01] Info: Player adwas (ID: 2) joined the game.
+[14:23:02] Info: Game started
+[14:23:15] Info: Player tewsd (ID: 1) disconnected
+[14:23:17] Info: Player adwas (ID: 2) disconnected
+[14:25:09] Info: Player rsadf (ID: 1) joined the game.
+[14:25:09] Info: Server: rsadf has joined the game!
+[14:25:18] Info: Player adwas (ID: 2) joined the game.
+[14:25:18] Info: Server: adwas has joined the game!
+[14:25:19] Info: Game started
+[14:25:25] Info: 2: test
+[14:25:29] Info: 1: test
+[14:25:46] Info: Player rsadf (ID: 1) disconnected
+[14:25:46] Info: Server: rsadf has left the game!
+[14:25:50] Info: Player adwas (ID: 2) disconnected
+[14:25:50] Info: Server: adwas has left the game!
+[14:28:19] Info: Player awdr (ID: 1) joined the game.
+[14:28:19] Info: Server: awdr has joined the game!
+[14:28:24] Info: Player awdawrt (ID: 2) joined the game.
+[14:28:24] Info: Server: awdawrt has joined the game!
+[14:28:27] Info: awdr: teast
+[14:28:29] Info: Game started
+[14:28:31] Info: 1: test
+[14:28:34] Info: 2: test
+[14:28:39] Info: Player awdr (ID: 1) disconnected
+[14:28:39] Info: Server: awdr has left the game!
+[14:28:40] Info: Player awdawrt (ID: 2) disconnected
+[14:28:40] Info: Server: awdawrt has left the game!

@@ -16,6 +16,7 @@ public class GameManager
     {
         Random random = new Random();
         int totalPlayers = players.Count;
+        HashSet<int> assignedPlayerIds = new HashSet<int>();
 
         // Ensure the minimum required characters
         int goodGoonCount = 1;
@@ -29,23 +30,26 @@ public class GameManager
         int remainingNeutralCount = totalPlayers - (goodGoonCount + goodSpyCount + medicCount + evilGoonCount + remainingGoodCount + remainingEvilCount);
 
         // First, assign the guaranteed characters
-        AssignSpecificCharacterToPlayers(players, goodGoonCount, new GoodFactory(), "GoodGoon");
-        AssignSpecificCharacterToPlayers(players, goodSpyCount, new GoodFactory(), "GoodSpy");
-        AssignSpecificCharacterToPlayers(players, medicCount, new GoodFactory(), "Medic");
-        AssignSpecificCharacterToPlayers(players, evilGoonCount, new EvilFactory(), "EvilGoon");
+        AssignSpecificCharacterToPlayers(players, goodGoonCount, new GoodFactory(), "GoodGoon", assignedPlayerIds);
+        AssignSpecificCharacterToPlayers(players, goodSpyCount, new GoodFactory(), "GoodSpy", assignedPlayerIds);
+        AssignSpecificCharacterToPlayers(players, medicCount, new GoodFactory(), "Medic", assignedPlayerIds);
+        AssignSpecificCharacterToPlayers(players, evilGoonCount, new EvilFactory(), "EvilGoon", assignedPlayerIds);
 
         // Now assign the remaining characters randomly from the available factories
-        AssignRemainingCharacters(players, remainingGoodCount, goodFactories);
-        AssignRemainingCharacters(players, remainingEvilCount, evilFactories);
-        AssignRemainingCharacters(players, remainingNeutralCount, neutralFactories);
+        AssignRemainingCharacters(players, remainingGoodCount, goodFactories, assignedPlayerIds);
+        AssignRemainingCharacters(players, remainingEvilCount, evilFactories, assignedPlayerIds);
+        AssignRemainingCharacters(players, remainingNeutralCount, neutralFactories, assignedPlayerIds);
     }
 
-    private void AssignSpecificCharacterToPlayers(List<Player> players, int count, CharacterFactory factory, string roleName)
+    private void AssignSpecificCharacterToPlayers(List<Player> players, int count, CharacterFactory factory, string roleName, HashSet<int> assignedPlayerIds)
     {
+        var unassignedPlayers = players.Where(p => !assignedPlayerIds.Contains(p.ID)).ToList();
         Random random = new Random();
-        for (int i = 0; i < count; i++)
+
+        for (int i = 0; i < count && unassignedPlayers.Count > 0; i++)
         {
-            var player = players[random.Next(players.Count)];
+            int index = random.Next(unassignedPlayers.Count);
+            Player player = unassignedPlayers[index];
             Character character = factory.CreateCharacter();
 
             // Ensure the character is of the right type
@@ -55,18 +59,26 @@ public class GameManager
             }
 
             player.AssignCharacter(character);
+            assignedPlayerIds.Add(player.ID);
+            unassignedPlayers.RemoveAt(index);
         }
     }
 
-    private void AssignRemainingCharacters(List<Player> players, int count, List<CharacterFactory> factories)
+    private void AssignRemainingCharacters(List<Player> players, int count, List<CharacterFactory> factories, HashSet<int> assignedPlayerIds)
     {
+        var unassignedPlayers = players.Where(p => !assignedPlayerIds.Contains(p.ID)).ToList();
         Random random = new Random();
-        for (int i = 0; i < count; i++)
+
+        for (int i = 0; i < count && unassignedPlayers.Count > 0; i++)
         {
             int factoryIndex = random.Next(factories.Count);
             Character character = factories[factoryIndex].CreateCharacter();
-            var player = players[random.Next(players.Count)];
+            int playerIndex = random.Next(unassignedPlayers.Count);
+
+            Player player = unassignedPlayers[playerIndex];
             player.AssignCharacter(character);
+            assignedPlayerIds.Add(player.ID);
+            unassignedPlayers.RemoveAt(playerIndex);
         }
     }
 }

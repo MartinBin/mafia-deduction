@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,7 +12,7 @@ using Microsoft.AspNetCore.SignalR.Client;
 namespace Mafia_client;
 
 
-public partial class GameWindow : UserControl
+public partial class GameWindow : UserControl, INotifyPropertyChanged, IDisposable
 {
     private const int MaxPlayers = 10;
     private const double TableCenterX = 400;
@@ -20,12 +22,14 @@ public partial class GameWindow : UserControl
     private readonly string assignedCharacter;
     private int playerID;
 
-    public GameWindow(HubConnection connection, string character, int playerID)
+    public GameWindow(HubConnection connection, string character, int playerID, Boolean playerCanSeeEvilChat)
     {
         InitializeComponent();
         hubConnection = connection;
         assignedCharacter = character;
         this.playerID = playerID;
+        IsPlayerEvil = playerCanSeeEvilChat;
+        
         if (hubConnection.State != HubConnectionState.Connected)
         {
             MessageBox.Show("Hub connection is not in a connected state.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -34,7 +38,17 @@ public partial class GameWindow : UserControl
         SetupSignalREventHandlers();
         RequestPlayerList();
     }
-
+    
+    private bool _isPlayerEvil;
+    public bool IsPlayerEvil
+    {
+        get => _isPlayerEvil;
+        set
+        {
+            _isPlayerEvil = value;
+            OnPropertyChanged(nameof(IsPlayerEvil));
+        }
+    }
     private async void RequestPlayerList()
     {
         await hubConnection.InvokeAsync("PlayerList");
@@ -96,10 +110,9 @@ public partial class GameWindow : UserControl
             Canvas.SetTop(roleLabel, relativeY * GameCanvas.Height - 80);
             GameCanvas.Children.Add(roleLabel);
         }
-
+        
 
     }
-
     private void SetupSignalREventHandlers()
     {
         hubConnection.On<JsonElement>("SendPlayerList", (jsonElement) =>
@@ -110,5 +123,68 @@ public partial class GameWindow : UserControl
                 SetupPlayers(playerList.ToList());
             });
         });
+        hubConnection.On<int,string>("ReceiveGeneralMessage", (id,message) =>
+        {
+            Dispatcher.Invoke(() =>
+            {
+                string fullMessage = $"{id}: {message}";
+                GeneralMessageList.Items.Add(fullMessage);
+            });
+        });
+
+        hubConnection.On<int,string>("ReceiveEvilMessage", (id,message) =>
+        {
+            Dispatcher.Invoke(() =>
+            {
+                string fullMessage = $"{id}: {message}";
+                EvilMessageList.Items.Add(fullMessage);
+            });
+        });
+    }
+    
+    
+    private async void SendGeneralMessage(object sender, RoutedEventArgs e)
+    {
+        string message = GeneralMessageInput.Text;
+        if (!string.IsNullOrEmpty(message))
+        {
+            try
+            {
+                await hubConnection.InvokeAsync("SendGeneralMessage",playerID, message);
+                GeneralMessageInput.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error sending message: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+    }
+
+    private async void SendEvilMessage(object sender, RoutedEventArgs e)
+    {
+        string message = EvilMessageInput.Text;
+        if (!string.IsNullOrEmpty(message))
+        {
+            try
+            {
+                await hubConnection.InvokeAsync("SendEvilMessage",playerID, message);
+                EvilMessageInput.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error sending message: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+    }
+    
+    public event PropertyChangedEventHandler PropertyChanged;
+    protected void OnPropertyChanged(string propertyName)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    public void Dispose()
+    {
+        hubConnection?.DisposeAsync();
     }
 }
