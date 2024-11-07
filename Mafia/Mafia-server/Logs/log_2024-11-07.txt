@@ -119,3 +119,15 @@
 [14:28:39] Info: Server: awdr has left the game!
 [14:28:40] Info: Player awdawrt (ID: 2) disconnected
 [14:28:40] Info: Server: awdawrt has left the game!
+[19:55:33] Info: Player laslkdjowijad (ID: 1) joined the game.
+[19:55:33] Info: Server: laslkdjowijad has joined the game!
+[19:55:40] Info: Player adwasd (ID: 2) joined the game.
+[19:55:40] Info: Server: adwasd has joined the game!
+[19:55:42] Info: laslkdjowijad: resaf
+[19:55:43] Info: Game started
+[19:55:54] Info: 1: awdsad
+[19:55:58] Info: 2: fesdf
+[19:56:13] Info: Player laslkdjowijad (ID: 1) disconnected
+[19:56:13] Info: Server: laslkdjowijad has left the game!
+[19:56:17] Info: Player adwasd (ID: 2) disconnected
+[19:56:17] Info: Server: adwasd has left the game!

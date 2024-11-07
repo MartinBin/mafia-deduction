@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using Mafia_client.Prototype;
 using Microsoft.AspNetCore.SignalR.Client;
 
 namespace Mafia_client;
@@ -71,25 +72,26 @@ public partial class GameWindow : UserControl, INotifyPropertyChanged, IDisposab
             AddPlayerToCanvas(playerNames[i].username, x / GameCanvas.Width, y / GameCanvas.Height,playerNames[i].playerID);
         }
     }
+    
+    private readonly EllipsePrototype playerAvatarPrototype = new EllipsePrototype(
+        width: 50,
+        height: 50,
+        fill: Brushes.LightBlue,
+        stroke: Brushes.Black,
+        strokeThickness: 2);
+
+    private readonly TextBlockPrototype nameLabelPrototype = new TextBlockPrototype(
+        text: String.Empty,
+        fontSize: 14,
+        textAlignment: TextAlignment.Center,
+        width: 100);
 
     private void AddPlayerToCanvas(string playerName, double relativeX, double relativeY, int playerID)
     {
-        Ellipse playerAvatar = new Ellipse
-        {
-            Width = 50,
-            Height = 50,
-            Fill = Brushes.LightBlue,
-            Stroke = Brushes.Black,
-            StrokeThickness = 2
-        };
-
-        TextBlock nameLabel = new TextBlock
-        {
-            Text = playerName,
-            FontSize = 14,
-            TextAlignment = TextAlignment.Center,
-            Width = 100
-        };
+        Ellipse playerAvatar = playerAvatarPrototype.Clone();
+        TextBlock nameLabel = nameLabelPrototype.Clone();
+        nameLabel.Text = playerName;
+        
         Canvas.SetLeft(playerAvatar, relativeX * GameCanvas.Width - 25);
         Canvas.SetTop(playerAvatar, relativeY * GameCanvas.Height - 25);
         Canvas.SetLeft(nameLabel, relativeX * GameCanvas.Width - 50);
