@@ -1,18 +1,24 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using System.Threading.Tasks;
+using Mafia_server.Command;
 using Mafia_server.Decorator;
+using Mafia_server.Observer;
 
 namespace Mafia_server
 {
-    public class GameHub : Hub
+    public class GameHub : Hub, IObserver
     {
         private readonly GameManager gameManager;
+        private readonly CommandInvoker _commandInvoker = new CommandInvoker();
         private static bool gameInProgress = false;
 
-        public GameHub(GameManager gameManager)
+        public GameHub(GameManager gameManager, CommandSubject commandSubject)
         {
             this.gameManager = gameManager;
             Logger.getInstance.SetLogFolderPath(".\\Logs");
+            _commandInvoker.RegisterCommand("StartGame", _ => new StartGameCommand(this));
+            _commandInvoker.RegisterCommand("SendMessage", parameters => new SendMessageCommand(this, "Server", string.Join(" ", parameters)));
+            commandSubject.RegisterObserver(this);
         }
 
 
@@ -167,6 +173,16 @@ namespace Mafia_server
             {
                 await Clients.Client(player.ConnectionId).SendAsync("ReceiveEvilMessage",id, message);
             }
+        }
+        
+        public async Task UpdateAsync(string command, params string[] parameters)
+        {
+            await ExecuteCommand(command, parameters);
+        }
+
+        public async Task ExecuteCommand(string commandName, params string[] parameters)
+        {
+            await _commandInvoker.ExecuteCommandAsync(commandName, parameters);
         }
     }
 }

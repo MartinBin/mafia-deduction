@@ -1,4 +1,5 @@
 ﻿using Mafia_server;
+using Mafia_server.Observer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,7 +10,7 @@ namespace Mafia_server
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,14 @@ namespace Mafia_server
             builder.Services.AddSingleton<GameManager>();
             builder.Services.AddSignalR();
 
+            var commandSubject = new CommandSubject();
+            builder.Services.AddSingleton(commandSubject);
+            
+            builder.Services.AddSingleton<GameHub>(sp =>
+            {
+                var gameManager = sp.GetRequiredService<GameManager>();
+                return new GameHub(gameManager, commandSubject);
+            });
             var app = builder.Build();
 
             // Disable the development exception page
@@ -29,10 +38,13 @@ namespace Mafia_server
 
             Globals.serverIsRunning = true;
             Logger.Initialize(ConsoleColor.Green);
+            Logger.getInstance.Log(LogType.Info,"Server started. Press Ctrl+C to shut down.");
+            //Console.WriteLine("Server started. Press Ctrl+C to shut down.");
 
-            Console.WriteLine("Server started. Press Ctrl+C to shut down.");
-
-            app.Run();
+            var terminalCommandHandler = new TerminalCommandHandler(commandSubject);
+            var terminalTask = terminalCommandHandler.ReadCommandsFromTerminalAsync();
+            
+            await Task.WhenAny(app.RunAsync(), terminalTask);
         }
     }
 }

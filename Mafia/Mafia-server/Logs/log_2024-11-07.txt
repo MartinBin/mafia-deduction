@@ -197,3 +197,46 @@
 [20:41:29] Info: Server: dawd has left the game!
 [20:41:30] Info: Player ddawds (ID: 2) disconnected
 [20:41:30] Info: Server: ddawds has left the game!
+[21:11:02] Info: Player test (ID: 1) joined the game.
+[21:11:02] Info: Server: test has joined the game!
+[21:11:57] Info: Game started
+[21:12:13] Info: 1: StartGame
+[21:12:16] Info: Player test (ID: 1) disconnected
+[21:12:16] Info: Server: test has left the game!
+[21:28:01] Info: Player Kazys (ID: 1) joined the game.
+[21:28:01] Info: Server: Kazys has joined the game!
+[21:28:25] Info: Kazys: gaidys
+[21:28:32] Info: Kazys: gaidys gaidys
+[21:29:11] Info: Player Petras (ID: 2) joined the game.
+[21:29:11] Info: Server: Petras has joined the game!
+[21:29:27] Info: Kazys: Petras yra gejus
+[21:29:45] Info: Kazys: Petras
+[21:33:03] Info: Player Kazys (ID: 1) joined the game.
+[21:33:03] Info: Server: Kazys has joined the game!
+[21:33:05] Info: Kazys: durns
+[21:34:35] Info: Player Kazys (ID: 1) joined the game.
+[21:34:35] Info: Server: Kazys has joined the game!
+[21:34:45] Info: petras: 
+[21:34:59] Info: Player Kazys (ID: 1) disconnected
+[21:34:59] Info: Server: Kazys has left the game!
+[21:35:13] Info: Player wrsds (ID: 1) joined the game.
+[21:35:13] Info: Server: wrsds has joined the game!
+[21:36:17] Info: Player wadsd (ID: 1) joined the game.
+[21:36:17] Info: Server: wadsd has joined the game!
+[21:36:22] Info: Server: 
+[21:36:42] Info: Server: 
+[21:36:46] Info: Player wadsd (ID: 1) disconnected
+[21:36:46] Info: Server: wadsd has left the game!
+[21:37:18] Info: Player Test (ID: 1) joined the game.
+[21:37:18] Info: Server: Test has joined the game!
+[21:37:28] Info: Server: testas
+[21:37:32] Info: Server: testas gaidys
+[21:37:40] Info: Test: fuck off
+[21:37:55] Info: Server: Trump is G
+[21:38:04] Info: Game started
+[21:38:14] Info: Player Test (ID: 1) disconnected
+[21:38:14] Info: Server: Test has left the game!
+[21:38:43] Info: Player Kazys (ID: 1) joined the game.
+[21:38:43] Info: Server: Kazys has joined the game!
+[21:39:09] Info: Player Kazys (ID: 1) disconnected
+[21:39:09] Info: Server: Kazys has left the game!
