@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\robot\Documents\GitHub\mafia-deduction\Mafia\Mafia-client\obj\Release\net8.0-windows\
+C:\Users\Gustas\Desktop\opp\mafia-deduction\Mafia\Mafia-client\obj\Release\net8.0-windows\
 Mafia_client
 none
 false
 TRACE;RELEASE;NET;NET8_0;NETCOREAPP
-C:\Users\robot\Documents\GitHub\mafia-deduction\Mafia\Mafia-client\App.xaml
-42039154929
+C:\Users\Gustas\Desktop\opp\mafia-deduction\Mafia\Mafia-client\App.xaml
+51028608780
 
-71773622913
-2131811707657
-JoinWindow.xaml;LobbyControl.xaml;MainMenuControl.xaml;MainWindow.xaml;
+8-1491783162
+2131125487098
+GameWindow.xaml;JoinWindow.xaml;LobbyControl.xaml;MainMenuControl.xaml;MainWindow.xaml;
 
 False
 
