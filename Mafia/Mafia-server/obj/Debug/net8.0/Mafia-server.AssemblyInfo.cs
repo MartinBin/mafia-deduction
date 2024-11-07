@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mafia-server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+30c82e79bcfc7c73f17a501b3917f34e1653094c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d846d5a36bf941fbd7c881e2e072e203d93f683")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mafia-server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mafia-server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,6 +1,6 @@
 ﻿namespace Mafia_server.Strategy
 {
-    public interface HealStrategy : IAbilityStrategy
+    public class HealStrategy : IAbilityStrategy
     {
         public void UseAbility()
         {

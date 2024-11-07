@@ -1,6 +1,6 @@
 ﻿namespace Mafia_server.Strategy
 {
-    public interface TauntStrategy : IAbilityStrategy
+    public class TauntStrategy : IAbilityStrategy
     {
         public void UseAbility()
         {

@@ -1,7 +1,6 @@
+using Mafia_server.Strategy;
+
 public class EvilGoon : Character
 {
-    public override void UseAbility()
-    {
-        // Implement Evil Goon ability
-    }
+
 }

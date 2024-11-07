@@ -1,6 +1,6 @@
 ﻿namespace Mafia_server.Strategy
 {
-    public interface VoteStrategy : IAbilityStrategy
+    public class VoteStrategy : IAbilityStrategy
     {
         public void UseAbility()
         {

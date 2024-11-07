@@ -1,3 +1,6 @@
+using Mafia_server.Builder;
+using Mafia_server.Strategy;
+
 public class GoodFactory : CharacterFactory
 {
     public override Character CreateCharacter()
@@ -5,16 +8,39 @@ public class GoodFactory : CharacterFactory
         // Randomly choose between Good Goon, Good Spy, and Medic
         Random random = new Random();
         int choice = random.Next(3);
+        Character character;
         switch (choice)
         {
             case 0:
-                return new GoodGoon();
+                character = new GoodGoon();
+                character.AddAbility(new VoteStrategy());
+                break;
             case 1:
-                return new GoodSpy();
+                character = new GoodSpy();
+                character.AddAbility(new SpyStrategy());
+                character.AddAbility(new ArrestStrategy());
+                character.AddAbility(new VoteStrategy());
+                break;
             case 2:
-                return new Medic();
+                character = new Medic();
+                character.AddAbility(new HealStrategy());
+                character.AddAbility(new VoteStrategy());
+                break;
             default:
                 throw new InvalidOperationException("Invalid choice");
         }
+        
+        ICharacterBuilder builder = new CharacterBuilder(character)
+            .SetCanUseGoodChat(true)
+            .AddAbility(new VoteStrategy());
+        if (choice == 1)
+        {
+            builder.AddAbility(new ArrestStrategy()).AddAbility(new SpyStrategy());
+        }else if (choice == 2)
+        {
+            builder.AddAbility(new HealStrategy());
+        }
+        
+        return builder.Build();
     }
 }

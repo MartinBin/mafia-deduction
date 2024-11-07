@@ -1,2 +1,17 @@
 [11:33:18] Info: Player Kazys (ID: 1) joined the game.
 [11:33:32] Info: Player Kazys (ID: 1) disconnected
+[12:27:25] Info: Player Kazys (ID: 1) joined the game.
+[12:27:39] Info: Player test (ID: 2) joined the game.
+[12:34:50] Info: Player qq (ID: 1) joined the game.
+[12:34:54] Info: Player wads (ID: 2) joined the game.
+[12:34:58] Info: Player grsd (ID: 3) joined the game.
+[12:40:25] Info: Player dasc (ID: 1) joined the game.
+[12:40:29] Info: Player sdawd (ID: 2) joined the game.
+[12:40:34] Info: Player dsac (ID: 3) joined the game.
+[12:40:39] Info: Player sdawds (ID: 4) joined the game.
+[12:43:25] Info: Player adwas (ID: 1) joined the game.
+[12:43:36] Info: Player adwasd (ID: 2) joined the game.
+[12:43:45] Info: Player dawds (ID: 3) joined the game.
+[12:43:53] Info: Player sadwasd (ID: 4) joined the game.
+[12:44:02] Info: Player sdawdas (ID: 5) joined the game.
+[12:44:11] Info: Player sadwds (ID: 6) joined the game.

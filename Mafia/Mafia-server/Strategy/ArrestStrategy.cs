@@ -1,6 +1,6 @@
 ﻿namespace Mafia_server.Strategy
 {
-    public interface ArrestStrategy : IAbilityStrategy
+    public class ArrestStrategy : IAbilityStrategy
     {
         public void UseAbility()
         {
