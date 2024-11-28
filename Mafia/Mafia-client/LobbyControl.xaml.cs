@@ -83,8 +83,9 @@ public partial class LobbyControl : UserControl
         {
             Dispatcher.Invoke(() =>
             {
-                // Store the assigned character for later use
-                ((MainWindow)Application.Current.MainWindow).AssignedCharacter = character;
+                var mainWindow = (MainWindow)Application.Current.MainWindow;
+                mainWindow.AssignedCharacter = character;
+                mainWindow.playerCanSeeEvilChat = false;
             });
         });
         hubConnection.On<Boolean>("CanUseEvilChat", (chat) =>

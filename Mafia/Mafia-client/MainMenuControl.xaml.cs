@@ -22,5 +22,6 @@ namespace Mafia_client
         {
             ExitGameClicked?.Invoke(this, EventArgs.Empty);
         }
+        
     }
 }

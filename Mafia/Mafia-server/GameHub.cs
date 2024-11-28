@@ -11,16 +11,27 @@ namespace Mafia_server
         private readonly GameManager gameManager;
         private readonly CommandInvoker _commandInvoker = new CommandInvoker();
         private static bool gameInProgress = false;
+        
+        private static Timer _stateTimer;
+        private static int _currentTimeRemaining;
+        private IHubContext<GameHub> _hubContext;
+        public GameStateContext StateContext { get; private set; }
 
-        public GameHub(GameManager gameManager, CommandSubject commandSubject)
+        public GameHub(GameManager gameManager, CommandSubject commandSubject, IHubContext<GameHub> hubContext)
         {
+            StateContext = new GameStateContext(this);
             this.gameManager = gameManager;
+            _hubContext = hubContext;
             Logger.getInstance.SetLogFolderPath(".\\Logs");
             _commandInvoker.RegisterCommand("StartGame", _ => new StartGameCommand(this));
             _commandInvoker.RegisterCommand("SendMessage", parameters => new SendMessageCommand(this, "Server", string.Join(" ", parameters)));
             commandSubject.RegisterObserver(this);
         }
 
+        public async Task BroadcastTimeRemaining(int timeMs)
+        {
+            await _hubContext.Clients.All.SendAsync("TimeRemaining", timeMs);
+        }
 
         public async Task StartGame()
         {
@@ -56,17 +67,50 @@ namespace Mafia_server
 
                 decoratedCharacter.Render();
             }
-            // Notify players of their assigned characters
             foreach (var client in Globals.clients.Values)
             {
                 await Clients.Client(client.ConnectionId).SendAsync("AssignedCharacter", client.Player.Character.GetType().Name);
                 await Clients.Client(client.ConnectionId).SendAsync("CanUseEvilChat", client.Player.Character.CanUseEvilChat);
             }
+            
+            await Task.Delay(100);
+            
             await Clients.All.SendAsync("GameStarted");
             await PlayerList();
             Logger.getInstance.Log(LogType.Info, $"Game started");
+            await Task.Delay(100);
+            await StateContext.TransitionTo(new DayState(this,_hubContext));
+        }
+        public async Task Vote(int targetId)
+        {
+            var currentState = StateContext.GetCurrentState();
+            if (currentState is VotingState)
+            {
+                StateContext.HandlePlayerAction(GetPlayerId(), "Vote", targetId);
+            }
+            else
+            {
+                await Clients.Caller.SendAsync("Error", "Voting is not allowed during this phase");
+            }
         }
 
+        public async Task UseAbility(string abilityName, int targetId)
+        {
+            var currentState = StateContext.GetCurrentState();
+            if (currentState is NightState)
+            {
+                StateContext.HandlePlayerAction(GetPlayerId(), "UseAbility", abilityName, targetId);
+            }
+            else
+            {
+                await Clients.Caller.SendAsync("Error", "Abilities can only be used during the night phase");
+            }
+        }
+
+        private int GetPlayerId()
+        {
+            return Globals.clients.Values.FirstOrDefault(c => c.ConnectionId == Context.ConnectionId)?.PlayerID ?? -1;
+        }
         public async Task PlayerList()
         {
             var players = Globals.clients.Values.Select(c => new { c.PlayerID, c.Username }).ToList();

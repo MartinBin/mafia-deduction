@@ -156,7 +156,13 @@ namespace Mafia_client
 
         public void TransitionToGameWindow(HubConnection hubC)
         {
-            gameWindow = new GameWindow(hubC, AssignedCharacter,playerID,playerCanSeeEvilChat);
+            if (string.IsNullOrEmpty(AssignedCharacter))
+            {
+                MessageBox.Show("Character not assigned yet!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+    
+            gameWindow = new GameWindow(hubC, AssignedCharacter, playerID, playerCanSeeEvilChat);
             MainContent.Content = gameWindow;
         }
     }

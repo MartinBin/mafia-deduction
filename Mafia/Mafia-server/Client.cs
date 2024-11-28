@@ -6,7 +6,7 @@ namespace Mafia_server
         public string Username { get; private set; }
         public string ConnectionId { get; private set; }
         public bool IsPlaying { get; set; } = false;
-        public Player Player { get; private set; }
+        public Player Player { get; set; }
         public DateTime JoinedAt { get; private set; }
 
         public Client(int playerId, string username, string connectionId)

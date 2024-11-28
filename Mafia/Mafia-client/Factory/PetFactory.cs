@@ -2,12 +2,23 @@
 
 public static class PetFactory
 {
-    public static IPet? CreatePet(string petType)
+    private static readonly Dictionary<string, PetSkin> _skins = new();
+
+    private static PetSkin GetPetSkin(string fileName)
     {
-        return petType.ToLower() switch
+        if (!_skins.ContainsKey(fileName))
         {
-            "cat" => new Cat(),
-            "dog" => new Dog(),
+            _skins[fileName] = new PetSkin(fileName);
+        }
+        return _skins[fileName];
+    }
+
+    public static IPet CreatePet(string type)
+    {
+        return type.ToLower() switch
+        {
+            "cat" => new Cat(GetPetSkin("cat.png")),
+            "dog" => new Dog(GetPetSkin("dog.png")),
             _ => null
         };
     }

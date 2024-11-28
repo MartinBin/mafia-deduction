@@ -5,13 +5,15 @@ namespace Mafia_client.Factory;
 
 public class Dog : IPet
 {
+    public PetSkin Skin { get; }
+
+    public Dog(PetSkin skin)
+    {
+        Skin = skin;
+    }
+
     public Image GetPetImage()
     {
-        return new Image
-        {
-            Source = new BitmapImage(new Uri("pack://application:,,,/Images/dog.png")),
-            Width = 50,
-            Height = 50
-        };
+        return Skin.Image;
     }
 }

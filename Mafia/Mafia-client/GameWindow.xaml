@@ -1,44 +1,74 @@
 ﻿<UserControl x:Class="Mafia_client.GameWindow"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Mafia_client"
+             xmlns:mafiaClient="clr-namespace:Mafia_client"
              DataContext="{Binding RelativeSource={RelativeSource Self}}">
-
     <UserControl.Resources>
-        <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <mafiaClient:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
     </UserControl.Resources>
-
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Viewbox Stretch="Uniform" Grid.Row="0">
+        <!-- Game Status Bar -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#F0F0F0">
+            <TextBlock Text="{Binding CurrentGameState}" Margin="10,5"/>
+            <TextBlock Text="{Binding TimeRemainingText}" Margin="10,5"/>
+        </StackPanel>
+
+        <!-- Main Game Area -->
+        <Grid x:Name="MainGamePanel" Grid.Row="1">
             <Canvas x:Name="GameCanvas" Width="800" Height="600" Background="ForestGreen">
                 <Ellipse x:Name="TableEllipse" Fill="SaddleBrown" Width="500" Height="300" 
                          Canvas.Left="150" Canvas.Top="150"/>
             </Canvas>
-        </Viewbox>
 
-        <DockPanel VerticalAlignment="Bottom" Height="300" Grid.Row="1">
-            <TabControl x:Name="ChatTabControl" DockPanel.Dock="Bottom">
+            <!-- Day Phase Panel -->
+            <StackPanel x:Name="DayPanel" Visibility="Collapsed">
+                <!-- Day-specific controls -->
+            </StackPanel>
+
+            <!-- Night Phase Panel -->
+            <StackPanel x:Name="NightPanel" Visibility="Collapsed">
+                <StackPanel x:Name="AbilitiesPanel" Orientation="Horizontal"/>
+            </StackPanel>
+
+            <!-- Voting Phase Panel -->
+            <StackPanel x:Name="VotingPanel" Visibility="Collapsed">
+                <!-- Voting buttons will be added here -->
+            </StackPanel>
+        </Grid>
+
+        <!-- Game End Panel -->
+        <Grid x:Name="GameEndPanel" Grid.Row="1" Visibility="Collapsed">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:Name="GameResultText" FontSize="24" HorizontalAlignment="Center"/>
+                <Button Content="Return to Lobby" Click="ReturnToLobby_Click" Margin="0,20"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Chat Area -->
+        <DockPanel Grid.Row="2" Height="200">
+            <TabControl x:Name="ChatTabControl">
                 <TabItem Header="General">
                     <StackPanel>
-                        <!-- Display area for general chat -->
-                        <ListBox x:Name="GeneralMessageList" Height="200" />
-                        <!-- Input area for general chat -->
-                        <TextBox x:Name="GeneralMessageInput" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Margin="0,10,0,10"/>
-                        <Button Content="Send" Click="SendGeneralMessage"/>
+                        <ListBox x:Name="GeneralMessageList" Height="120"/>
+                        <DockPanel>
+                            <Button DockPanel.Dock="Right" Content="Send" Click="SendGeneralMessage"/>
+                            <TextBox x:Name="GeneralMessageInput"/>
+                        </DockPanel>
                     </StackPanel>
                 </TabItem>
                 <TabItem Header="Evil" Visibility="{Binding IsPlayerEvil, Converter={StaticResource BoolToVisibilityConverter}}">
                     <StackPanel>
-                        <!-- Display area for evil chat -->
-                        <ListBox x:Name="EvilMessageList" Height="200" />
-                        <!-- Input area for evil chat -->
-                        <TextBox x:Name="EvilMessageInput" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Margin="0,10,0,10"/>
-                        <Button Content="Send" Click="SendEvilMessage"/>
+                        <ListBox x:Name="EvilMessageList" Height="120"/>
+                        <DockPanel>
+                            <Button DockPanel.Dock="Right" Content="Send" Click="SendEvilMessage"/>
+                            <TextBox x:Name="EvilMessageInput"/>
+                        </DockPanel>
                     </StackPanel>
                 </TabItem>
             </TabControl>

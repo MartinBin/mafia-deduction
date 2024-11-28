@@ -2,6 +2,7 @@
 using Mafia_server.Observer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -27,7 +28,8 @@ namespace Mafia_server
             builder.Services.AddSingleton<GameHub>(sp =>
             {
                 var gameManager = sp.GetRequiredService<GameManager>();
-                return new GameHub(gameManager, commandSubject);
+                var hubContext = sp.GetRequiredService<IHubContext<GameHub>>();
+                return new GameHub(gameManager, commandSubject, hubContext);
             });
             var app = builder.Build();
 

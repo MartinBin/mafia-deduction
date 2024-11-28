@@ -6,6 +6,14 @@ public abstract class Character:IDecorator
     private List<IAbilityStrategy> abilities = new List<IAbilityStrategy>();
     public bool CanUseEvilChat { get; set; }
     public bool CanUseGoodChat { get; set; }
+
+    public void ExecuteTurn()
+    {
+        PerformMainAction();
+        UseAbilities();
+    }
+    
+    protected abstract void PerformMainAction();
     public void AddAbility(IAbilityStrategy ability)
     {
         abilities.Add(ability);

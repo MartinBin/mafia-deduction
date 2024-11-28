@@ -15,11 +15,11 @@
 
     <ItemGroup>
       <None Remove="Images\cat.png" />
-      <Resource Include="Images\cat.png" />
       <None Remove="Images\dog.png" />
-      <Resource Include="Images\dog.png" />
       <None Remove="Images\maxwell-christmas.gif" />
-      <Resource Include="Images\maxwell-christmas.gif" />
+      <Resource Include="Images\Pets\cat.png" />
+      <Resource Include="Images\Pets\dog.png" />
+      <Resource Include="Images\Pets\maxwell-christmas.gif" />
     </ItemGroup>
 
 </Project>

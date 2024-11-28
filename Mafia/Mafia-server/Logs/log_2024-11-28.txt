@@ -1,0 +1,163 @@
+[11:19:36] Info: Player Petras (ID: 1) joined the game.
+[11:19:36] Info: Server: Petras has joined the game!
+[11:19:51] Info: Player Kazys (ID: 2) joined the game.
+[11:19:51] Info: Server: Kazys has joined the game!
+[11:20:06] Info: Player pwere (ID: 3) joined the game.
+[11:20:06] Info: Server: pwere has joined the game!
+[11:20:13] Info: Player sad (ID: 4) joined the game.
+[11:20:13] Info: Server: sad has joined the game!
+[11:20:15] Info: Game started
+[11:20:27] Info: Player Kazys (ID: 2) disconnected
+[11:20:27] Info: Server: Kazys has left the game!
+[11:21:32] Info: Player sad (ID: 1) joined the game.
+[11:21:32] Info: Server: sad has joined the game!
+[11:21:34] Info: Game started
+[11:22:20] Info: Player sad (ID: 1) disconnected
+[11:22:20] Info: Server: sad has left the game!
+[11:23:44] Info: Player daw (ID: 1) joined the game.
+[11:23:44] Info: Server: daw has joined the game!
+[11:23:52] Info: Player sdaw (ID: 2) joined the game.
+[11:23:52] Info: Server: sdaw has joined the game!
+[11:23:53] Info: Game started
+[11:24:24] Info: Player sdaw (ID: 2) disconnected
+[11:24:24] Info: Server: sdaw has left the game!
+[11:24:25] Info: Player daw (ID: 1) disconnected
+[11:24:25] Info: Server: daw has left the game!
+[11:31:13] Info: Player asd (ID: 1) joined the game.
+[11:31:13] Info: Server: asd has joined the game!
+[11:31:21] Info: Player sdaw (ID: 2) joined the game.
+[11:31:21] Info: Server: sdaw has joined the game!
+[11:31:22] Info: Game started
+[11:31:33] Info: Player asd (ID: 1) disconnected
+[11:31:33] Info: Server: asd has left the game!
+[11:31:33] Info: Player sdaw (ID: 2) disconnected
+[11:31:33] Info: Server: sdaw has left the game!
+[11:34:27] Info: Player das (ID: 1) joined the game.
+[11:34:27] Info: Server: das has joined the game!
+[11:34:35] Info: Player daw (ID: 2) joined the game.
+[11:34:35] Info: Server: daw has joined the game!
+[11:34:36] Info: Game started
+[11:34:44] Info: Player daw (ID: 2) disconnected
+[11:34:44] Info: Server: daw has left the game!
+[11:34:45] Info: Player das (ID: 1) disconnected
+[11:34:45] Info: Server: das has left the game!
+[12:22:29] Info: Player sad (ID: 1) joined the game.
+[12:22:29] Info: Server: sad has joined the game!
+[12:22:37] Info: Player sad (ID: 2) joined the game.
+[12:22:37] Info: Server: sad has joined the game!
+[12:25:09] Info: Player daw (ID: 1) joined the game.
+[12:25:09] Info: Server: daw has joined the game!
+[12:25:14] Info: Player sdaw (ID: 2) joined the game.
+[12:25:14] Info: Server: sdaw has joined the game!
+[12:25:16] Info: Game started
+[12:25:23] Info: Game started
+[12:25:39] Info: Player sdaw (ID: 2) disconnected
+[12:25:39] Info: Server: sdaw has left the game!
+[12:29:00] Info: Player dwas (ID: 1) joined the game.
+[12:29:00] Info: Server: dwas has joined the game!
+[12:29:03] Info: Player daws (ID: 2) joined the game.
+[12:29:03] Info: Server: daws has joined the game!
+[12:29:04] Info: Game started
+[12:29:16] Info: Game started
+[12:29:17] Info: Game started
+[12:29:18] Info: Game started
+[12:29:23] Info: Player daws (ID: 2) disconnected
+[12:29:23] Info: Server: daws has left the game!
+[12:29:24] Info: Player dwas (ID: 1) disconnected
+[12:29:24] Info: Server: dwas has left the game!
+[12:32:32] Info: Player asd (ID: 1) joined the game.
+[12:32:32] Info: Server: asd has joined the game!
+[12:32:49] Info: Player sdaw (ID: 2) joined the game.
+[12:32:49] Info: Server: sdaw has joined the game!
+[12:32:51] Info: Game started
+[12:33:01] Info: Player sdaw (ID: 2) disconnected
+[12:33:01] Info: Server: sdaw has left the game!
+[12:33:03] Info: Game started
+[12:33:04] Info: Game started
+[12:33:05] Info: Game started
+[12:33:06] Info: Player asd (ID: 1) disconnected
+[12:33:06] Info: Server: asd has left the game!
+[12:33:42] Info: Player dwas (ID: 1) joined the game.
+[12:33:42] Info: Server: dwas has joined the game!
+[12:33:45] Info: dwas: test
+[12:34:50] Info: Game started
+[12:38:08] Info: Player test (ID: 1) joined the game.
+[12:38:08] Info: Server: test has joined the game!
+[12:38:10] Info: test: test
+[12:38:15] Info: Game started
+[12:39:04] Info: Game started
+[12:39:25] Info: Player test (ID: 1) disconnected
+[12:39:25] Info: Server: test has left the game!
+[12:40:43] Info: Player sad (ID: 1) joined the game.
+[12:40:43] Info: Server: sad has joined the game!
+[12:40:46] Info: Game started
+[12:41:27] Info: sad: StartGame
+[12:41:31] Info: Game started
+[12:41:51] Info: Player sad (ID: 1) disconnected
+[12:41:51] Info: Server: sad has left the game!
+[12:42:16] Info: Player asdw (ID: 1) joined the game.
+[12:42:16] Info: Server: asdw has joined the game!
+[12:42:22] Info: Game started
+[12:42:31] Info: Player asdw (ID: 1) disconnected
+[12:42:31] Info: Server: asdw has left the game!
+[12:45:01] Info: Player wda (ID: 1) joined the game.
+[12:45:01] Info: Server: wda has joined the game!
+[12:45:04] Info: Exiting Lobby State
+[12:45:04] Info: Day Phase Started
+[12:45:04] Info: Game started
+[12:45:12] Info: Player wda (ID: 1) disconnected
+[12:45:12] Info: Server: wda has left the game!
+[12:48:46] Info: Player Kazys (ID: 1) joined the game.
+[12:48:46] Info: Server: Kazys has joined the game!
+[12:48:50] Info: Exiting Lobby State
+[12:48:50] Info: Day Phase Started
+[12:48:50] Info: Game started
+[12:48:54] Info: Player Kazys (ID: 1) disconnected
+[12:48:54] Info: Server: Kazys has left the game!
+[13:02:08] Info: Player Petras (ID: 1) joined the game.
+[13:02:08] Info: Server: Petras has joined the game!
+[13:02:11] Info: Exiting Lobby State
+[13:02:11] Info: Day Phase Started
+[13:02:11] Info: Game started
+[13:02:38] Info: 1: test
+[13:02:55] Info: Player Petras (ID: 1) disconnected
+[13:02:55] Info: Server: Petras has left the game!
+[13:05:58] Info: Player dasd (ID: 1) joined the game.
+[13:05:58] Info: Server: dasd has joined the game!
+[13:06:03] Info: Exiting Lobby State
+[13:06:03] Info: Day Phase Started
+[13:06:03] Info: Game started
+[13:06:19] Info: 1: test
+[13:07:28] Info: Player dasd (ID: 1) disconnected
+[13:07:28] Info: Server: dasd has left the game!
+[13:18:33] Info: Player Kazys (ID: 1) joined the game.
+[13:18:33] Info: Server: Kazys has joined the game!
+[13:18:36] Info: Game started
+[13:18:36] Info: Exiting Lobby State
+[13:18:36] Info: Day Phase Started
+[13:20:51] Info: Player Kazys (ID: 1) joined the game.
+[13:20:51] Info: Server: Kazys has joined the game!
+[13:21:03] Info: Kazys: test
+[13:21:19] Info: Player Kazys (ID: 2) joined the game.
+[13:21:19] Info: Server: Kazys has joined the game!
+[13:21:21] Info: Game started
+[13:21:21] Info: Exiting Lobby State
+[13:21:21] Info: Day Phase Started
+[13:26:20] Info: Day Phase Ended
+[13:26:20] Info: Voting Phase Started
+[13:27:19] Info: Voting Phase Ended
+[13:27:19] Info: Night Phase Started
+[13:29:18] Info: Night Phase Ended
+[13:29:18] Info: Day Phase Started
+[13:34:17] Info: Day Phase Ended
+[13:34:17] Info: Voting Phase Started
+[13:35:16] Info: Voting Phase Ended
+[13:35:16] Info: Night Phase Started
+[13:37:15] Info: Night Phase Ended
+[13:37:15] Info: Day Phase Started
+[13:42:14] Info: Day Phase Ended
+[13:42:14] Info: Voting Phase Started
+[13:43:13] Info: Voting Phase Ended
+[13:43:13] Info: Night Phase Started
+[13:43:33] Info: Player Kazys (ID: 2) disconnected
+[13:43:33] Info: Server: Kazys has left the game!
