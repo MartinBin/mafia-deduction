@@ -1,19 +1,28 @@
 using Mafia_server;
+using Mafia_server.Log;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Logging;
 
 public class EndGameState : IGameState
 {
     private readonly GameHub _gameHub;
     private string _winningTeam;
+    private static Logger logger = Logger.getInstance;
 
     public EndGameState(GameHub gameHub)
     {
         _gameHub = gameHub;
+
+        var consoleHandler = new ConsoleLoggerHandler();
+        var fileHandler = new FileLoggerHandler(AppDomain.CurrentDomain.BaseDirectory);
+
+        consoleHandler.SetNext(fileHandler);
+        logger.SetHandlerChain(consoleHandler);
     }
 
     public void EnterState()
     {
-        Logger.getInstance.Log(LogType.Info, "Game Ended");
+        logger.Log(LogType.Info, "Game Ended");
         DetermineWinner();
     }
 

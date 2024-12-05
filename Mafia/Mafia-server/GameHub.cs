@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Mafia_server.Command;
 using Mafia_server.Decorator;
 using Mafia_server.Observer;
+using Mafia_server.Log;
 
 namespace Mafia_server
 {
@@ -11,6 +12,7 @@ namespace Mafia_server
         private readonly GameManager gameManager;
         private readonly CommandInvoker _commandInvoker = new CommandInvoker();
         private static bool gameInProgress = false;
+        private static Logger logger = Logger.getInstance;
         
         private static Timer _stateTimer;
         private static int _currentTimeRemaining;
@@ -22,10 +24,17 @@ namespace Mafia_server
             StateContext = new GameStateContext(this);
             this.gameManager = gameManager;
             _hubContext = hubContext;
-            Logger.getInstance.SetLogFolderPath(".\\Logs");
             _commandInvoker.RegisterCommand("StartGame", _ => new StartGameCommand(this));
             _commandInvoker.RegisterCommand("SendMessage", parameters => new SendMessageCommand(this, "Server", string.Join(" ", parameters)));
             commandSubject.RegisterObserver(this);
+
+            // Set up logger
+            var consoleHandler = new ConsoleLoggerHandler();
+            var fileHandler = new FileLoggerHandler(AppDomain.CurrentDomain.BaseDirectory);
+            consoleHandler.SetNext(fileHandler);
+            logger.SetHandlerChain(consoleHandler);
+
+
         }
 
         public async Task BroadcastTimeRemaining(int timeMs)
@@ -77,7 +86,7 @@ namespace Mafia_server
             
             await Clients.All.SendAsync("GameStarted");
             await PlayerList();
-            Logger.getInstance.Log(LogType.Info, $"Game started");
+            logger.Log(LogType.Info, $"Game started");
             await Task.Delay(100);
             await StateContext.TransitionTo(new DayState(this,_hubContext));
         }
@@ -136,7 +145,7 @@ namespace Mafia_server
                     await Clients.Caller.SendAsync("Welcome", playerId, "Welcome to the server!");
                     await Clients.Others.SendAsync("PlayerJoined", playerId, username);
                     await UpdatePlayerList();
-                    Logger.getInstance.Log(LogType.Info, $"Player {username} (ID: {playerId}) joined the game.");
+                    logger.Log(LogType.Info, $"Player {username} (ID: {playerId}) joined the game.");
                     string joinMessage = $"{username} has joined the game!";
                     await SendMessage("Server", joinMessage);
                     await CheckAndNotifyGameReady();
@@ -145,7 +154,7 @@ namespace Mafia_server
             else
             {
                 await Clients.Caller.SendAsync("Error", "Server is full");
-                Logger.getInstance.Log(LogType.Warning, "Server full");
+                logger.Log(LogType.Warning, "Server full");
             }
         }
         
@@ -170,7 +179,7 @@ namespace Mafia_server
             {
                 Globals.clients.Remove(client.PlayerID);
                 await Clients.Others.SendAsync("PlayerLeft", client.PlayerID, client.Username);
-                Logger.getInstance.Log(LogType.Info, $"Player {client.Username} (ID: {client.PlayerID}) disconnected");
+                logger.Log(LogType.Info, $"Player {client.Username} (ID: {client.PlayerID}) disconnected");
                 string leaveMessage = $"{client.Username} has left the game!";
                 await SendMessage("Server", leaveMessage);
                 if (gameInProgress)
@@ -196,7 +205,7 @@ namespace Mafia_server
         public async Task SendMessage(string username, string message)
         {
             string fullMessage = $"{username}: {message}";
-            Logger.getInstance.Log(LogType.Info, fullMessage);
+            logger.Log(LogType.Info, fullMessage);
             await Clients.All.SendAsync("ReceiveMessage", username, message);
         }
         
@@ -204,14 +213,14 @@ namespace Mafia_server
         public async Task SendGeneralMessage(int id,string message)
         {
             string fullMessage = $"{id}: {message}";
-            Logger.getInstance.Log(LogType.Info, fullMessage);
+            logger.Log(LogType.Info, fullMessage);
             await Clients.All.SendAsync("ReceiveGeneralMessage",id, message);
         }
 
         public async Task SendEvilMessage(int id,string message)
         {
             string fullMessage = $"{id}: {message}";
-            Logger.getInstance.Log(LogType.Info, fullMessage);
+            logger.Log(LogType.Info, fullMessage);
             var players = Globals.clients.Values.Where(x=>x.Player.Character.CanUseEvilChat).ToList();
             foreach (var player in players)
             {

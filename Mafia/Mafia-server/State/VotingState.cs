@@ -1,5 +1,7 @@
 using Mafia_server;
+using Mafia_server.Log;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Logging;
 
 public class VotingState : IGameState
 {
@@ -8,6 +10,7 @@ public class VotingState : IGameState
     private int _timeRemaining;
     private readonly IHubContext<GameHub> _hubContext;
     private readonly Dictionary<int, int> _votes = new();
+    private static Logger logger = Logger.getInstance;
 
     public VotingState(GameHub gameHub, IHubContext<GameHub> hubContext)
     {
@@ -15,6 +18,12 @@ public class VotingState : IGameState
         _hubContext = hubContext;
         _timeRemaining = Constants.VOTING_DURATION;
         _stateTimer = new Timer(UpdateTimer, null, 0, 1000);
+
+        var consoleHandler = new ConsoleLoggerHandler();
+        var fileHandler = new FileLoggerHandler(AppDomain.CurrentDomain.BaseDirectory);
+
+        consoleHandler.SetNext(fileHandler);
+        logger.SetHandlerChain(consoleHandler);
     }
 
     private async void UpdateTimer(object state)
@@ -39,14 +48,14 @@ public class VotingState : IGameState
 
     public void EnterState()
     {
-        Logger.getInstance.Log(LogType.Info, "Voting Phase Started");
+        logger.Log(LogType.Info, "Voting Phase Started");
         _votes.Clear();
     }
 
     public void ExitState()
     {
         _stateTimer.Dispose();
-        Logger.getInstance.Log(LogType.Info, "Voting Phase Ended");
+        logger.Log(LogType.Info, "Voting Phase Ended");
     }
 
     public void HandlePlayerAction(int playerId, string action, params object[] args)
