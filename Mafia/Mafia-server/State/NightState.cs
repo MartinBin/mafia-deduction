@@ -1,5 +1,7 @@
 using Mafia_server;
+using Mafia_server.Log;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Logging;
 
 public class NightState : IGameState
 {
@@ -7,12 +9,19 @@ public class NightState : IGameState
     private readonly Timer _stateTimer;
     private int _timeRemaining;
     private readonly IHubContext<GameHub> _hubContext;
+    private static Logger logger = Logger.getInstance;
 
     public NightState(GameHub gameHub, IHubContext<GameHub> hubContext)
     {
         _gameHub = gameHub;
         _timeRemaining = Constants.NIGHT_DURATION;
         _stateTimer = new Timer(UpdateTimer, null, 0, 1000);
+
+        var consoleHandler = new ConsoleLoggerHandler();
+        var fileHandler = new FileLoggerHandler(AppDomain.CurrentDomain.BaseDirectory);
+
+        consoleHandler.SetNext(fileHandler);
+        logger.SetHandlerChain(consoleHandler);
     }
     
     private async void UpdateTimer(object state)
@@ -29,13 +38,13 @@ public class NightState : IGameState
 
     public void EnterState()
     {
-        Logger.getInstance.Log(LogType.Info, "Night Phase Started");
+        logger.Log(LogType.Info, "Night Phase Started");
     }
 
     public void ExitState()
     {
         _stateTimer.Dispose();
-        Logger.getInstance.Log(LogType.Info, "Night Phase Ended");
+        logger.Log(LogType.Info, "Night Phase Ended");
     }
 
     public void HandlePlayerAction(int playerId, string action, params object[] args)

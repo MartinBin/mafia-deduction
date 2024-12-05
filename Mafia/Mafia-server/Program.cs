@@ -1,4 +1,4 @@
-﻿using Mafia_server;
+﻿using Mafia_server.Log;
 using Mafia_server.Observer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -39,9 +39,24 @@ namespace Mafia_server
             app.MapHub<GameHub>("/gamehub");
 
             Globals.serverIsRunning = true;
-            Logger.Initialize(ConsoleColor.Green);
-            Logger.getInstance.Log(LogType.Info,"Server started. Press Ctrl+C to shut down.");
+
+
+            
+            //string logPath = "C:\\Logs";
+
+            var consoleHandler = new ConsoleLoggerHandler();
+            var fileHandler = new FileLoggerHandler(AppDomain.CurrentDomain.BaseDirectory);
+
+            // Set up the chain of responsibility
+            consoleHandler.SetNext(fileHandler);
+
+            // Configure Logger
+            var logger = Logger.getInstance;
+            logger.SetHandlerChain(consoleHandler);
+
+            logger.Log(LogType.Info,"Server started. Press Ctrl+C to shut down.");
             //Console.WriteLine("Server started. Press Ctrl+C to shut down.");
+
 
             var terminalCommandHandler = new TerminalCommandHandler(commandSubject);
             var terminalTask = terminalCommandHandler.ReadCommandsFromTerminalAsync();
