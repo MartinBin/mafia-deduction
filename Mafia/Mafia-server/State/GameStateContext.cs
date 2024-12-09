@@ -4,11 +4,12 @@ public class GameStateContext
 {
     private IGameState _currentState;
     private readonly GameHub _gameHub;
+    public PlayerCaretaker PlayerCaretaker { get; } = new PlayerCaretaker();
     
     public GameStateContext(GameHub gameHub)
     {
         _gameHub = gameHub;
-        _currentState = new LobbyState(_gameHub);
+        _currentState = new LobbyState(_gameHub,this);
     }
 
     public async Task TransitionTo(IGameState state)

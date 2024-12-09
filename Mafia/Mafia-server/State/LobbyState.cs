@@ -6,8 +6,9 @@ public class LobbyState : IGameState
 {
     private readonly GameHub _gameHub;
     private static Logger logger = Logger.getInstance;
+    private readonly GameStateContext _stateContext;
 
-    public LobbyState(GameHub gameHub)
+    public LobbyState(GameHub gameHub, GameStateContext stateContext)
     {
         _gameHub = gameHub;
 
@@ -31,6 +32,9 @@ public class LobbyState : IGameState
 
     public void HandlePlayerAction(int playerId, string action, params object[] args)
     {
+        var player = Globals.clients[playerId].Player;
+        _stateContext.PlayerCaretaker.Save(player);
+        
         switch (action)
         {
             case "StartGame":

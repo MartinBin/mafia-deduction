@@ -10,10 +10,12 @@ public class NightState : IGameState
     private int _timeRemaining;
     private readonly IHubContext<GameHub> _hubContext;
     private static Logger logger = Logger.getInstance;
+    private readonly GameStateContext _stateContext;
 
-    public NightState(GameHub gameHub, IHubContext<GameHub> hubContext)
+    public NightState(GameHub gameHub, IHubContext<GameHub> hubContext, GameStateContext stateContext)
     {
         _gameHub = gameHub;
+        _stateContext = stateContext;
         _timeRemaining = Constants.NIGHT_DURATION;
         _stateTimer = new Timer(UpdateTimer, null, 0, 1000);
 
@@ -31,7 +33,7 @@ public class NightState : IGameState
         
         if (_timeRemaining <= 0)
         {
-            await _gameHub.StateContext.TransitionTo(new DayState(_gameHub, _hubContext));
+            await _gameHub.StateContext.TransitionTo(new DayState(_gameHub, _hubContext, _stateContext));
             _stateTimer.Dispose();
         }
     }
@@ -49,6 +51,8 @@ public class NightState : IGameState
 
     public void HandlePlayerAction(int playerId, string action, params object[] args)
     {
+        var player = Globals.clients[playerId].Player;
+        _stateContext.PlayerCaretaker.Save(player);
         // Handle night actions (killing, healing, etc.)
     }
 

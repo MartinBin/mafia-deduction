@@ -1,0 +1,17 @@
+[11:36:41] Info: Server started. Press Ctrl+C to shut down.
+[11:37:35] Info: Server started. Press Ctrl+C to shut down.
+[11:37:43] Info: Player aaaa (ID: 1) joined the game.
+[11:37:43] Info: Server: aaaa has joined the game!
+[11:37:48] Info: Player ssss (ID: 2) joined the game.
+[11:37:48] Info: Server: ssss has joined the game!
+[11:37:50] Info: Game started
+[11:37:50] Info: Exiting Lobby State
+[11:37:50] Info: Day Phase Started
+[11:42:49] Info: Day Phase Ended
+[11:42:49] Info: Voting Phase Started
+[11:43:48] Info: Voting Phase Ended
+[11:43:48] Info: Night Phase Started
+[11:45:47] Info: Night Phase Ended
+[11:45:47] Info: Day Phase Started
+[11:48:14] Info: Player ssss (ID: 2) disconnected
+[11:48:14] Info: Server: ssss has left the game!

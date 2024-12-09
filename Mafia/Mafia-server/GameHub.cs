@@ -88,7 +88,7 @@ namespace Mafia_server
             await PlayerList();
             logger.Log(LogType.Info, $"Game started");
             await Task.Delay(100);
-            await StateContext.TransitionTo(new DayState(this,_hubContext));
+            await StateContext.TransitionTo(new DayState(this,_hubContext,StateContext));
         }
         public async Task Vote(int targetId)
         {

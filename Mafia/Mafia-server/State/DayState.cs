@@ -8,12 +8,14 @@ public class DayState : IGameState
     private readonly GameHub _gameHub;
     private int _timeRemaining;
     private readonly Timer _stateTimer;
+    private readonly GameStateContext _stateContext;
     private readonly IHubContext<GameHub> _hubContext;
     private static Logger logger = Logger.getInstance;
 
-    public DayState(GameHub gameHub, IHubContext<GameHub> hubContext)
+    public DayState(GameHub gameHub, IHubContext<GameHub> hubContext, GameStateContext stateContext)
     {
         _gameHub = gameHub;
+        _stateContext = stateContext;
         _timeRemaining = Constants.DAY_DURATION;
         _stateTimer = new Timer(UpdateTimer, null, 0, 1000);
 
@@ -39,12 +41,15 @@ public class DayState : IGameState
 
     public void HandlePlayerAction(int playerId, string action, params object[] args)
     {
+        var player = Globals.clients[playerId].Player;
+        _stateContext.PlayerCaretaker.Save(player);
+        
         switch (action)
         {
             case "StartVote":
                 if (CanStartVote())
                 {
-                    _gameHub.StateContext.TransitionTo(new VotingState(_gameHub, _hubContext));
+                    _gameHub.StateContext.TransitionTo(new VotingState(_gameHub, _hubContext, _stateContext));
                 }
                 break;
             case "Chat":
@@ -60,7 +65,7 @@ public class DayState : IGameState
         
         if (_timeRemaining <= 0)
         {
-            await _gameHub.StateContext.TransitionTo(new VotingState(_gameHub, _hubContext));
+            await _gameHub.StateContext.TransitionTo(new VotingState(_gameHub, _hubContext, _stateContext));
             _stateTimer.Dispose();
         }
     }
@@ -73,7 +78,7 @@ public class DayState : IGameState
 
     private async void DayTimeExpired(object state)
     {
-        await _gameHub.StateContext.TransitionTo(new VotingState(_gameHub, _hubContext));
+        await _gameHub.StateContext.TransitionTo(new VotingState(_gameHub, _hubContext, _stateContext));
     }
 
     private void ProcessNightResults()

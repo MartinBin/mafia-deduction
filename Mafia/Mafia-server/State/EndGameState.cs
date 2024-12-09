@@ -7,9 +7,10 @@ public class EndGameState : IGameState
 {
     private readonly GameHub _gameHub;
     private string _winningTeam;
+    private readonly GameStateContext _stateContext;
     private static Logger logger = Logger.getInstance;
 
-    public EndGameState(GameHub gameHub)
+    public EndGameState(GameHub gameHub, GameStateContext stateContext)
     {
         _gameHub = gameHub;
 
@@ -34,10 +35,13 @@ public class EndGameState : IGameState
 
     public void HandlePlayerAction(int playerId, string action, params object[] args)
     {
+        var player = Globals.clients[playerId].Player;
+        _stateContext.PlayerCaretaker.Save(player);
+
         switch (action)
         {
             case "ReturnToLobby":
-                _gameHub.StateContext.TransitionTo(new LobbyState(_gameHub));
+                _gameHub.StateContext.TransitionTo(new LobbyState(_gameHub, _stateContext));
                 break;
         }
     }

@@ -9,13 +9,15 @@ public class VotingState : IGameState
     private readonly Timer _stateTimer;
     private int _timeRemaining;
     private readonly IHubContext<GameHub> _hubContext;
+    private readonly GameStateContext _stateContext;
     private readonly Dictionary<int, int> _votes = new();
     private static Logger logger = Logger.getInstance;
 
-    public VotingState(GameHub gameHub, IHubContext<GameHub> hubContext)
+    public VotingState(GameHub gameHub, IHubContext<GameHub> hubContext, GameStateContext stateContext)
     {
         _gameHub = gameHub;
         _hubContext = hubContext;
+        _stateContext = stateContext;
         _timeRemaining = Constants.VOTING_DURATION;
         _stateTimer = new Timer(UpdateTimer, null, 0, 1000);
 
@@ -36,11 +38,11 @@ public class VotingState : IGameState
             ProcessVotingResults();
             if (CheckGameEnd())
             {
-                await _gameHub.StateContext.TransitionTo(new EndGameState(_gameHub));
+                await _gameHub.StateContext.TransitionTo(new EndGameState(_gameHub, _stateContext));
             }
             else
             {
-                await _gameHub.StateContext.TransitionTo(new NightState(_gameHub, _hubContext));
+                await _gameHub.StateContext.TransitionTo(new NightState(_gameHub, _hubContext, _stateContext));
             }
             _stateTimer.Dispose();
         }
@@ -60,6 +62,9 @@ public class VotingState : IGameState
 
     public void HandlePlayerAction(int playerId, string action, params object[] args)
     {
+        var player = Globals.clients[playerId].Player;
+        _stateContext.PlayerCaretaker.Save(player);
+
         switch (action)
         {
             case "Vote":
@@ -83,11 +88,11 @@ public class VotingState : IGameState
         
         if (CheckGameEnd())
         {
-            await _gameHub.StateContext.TransitionTo(new EndGameState(_gameHub));
+            await _gameHub.StateContext.TransitionTo(new EndGameState(_gameHub, _stateContext));
         }
         else
         {
-            await _gameHub.StateContext.TransitionTo(new NightState(_gameHub, _hubContext));
+            await _gameHub.StateContext.TransitionTo(new NightState(_gameHub, _hubContext, _stateContext));
         }
     }
 
