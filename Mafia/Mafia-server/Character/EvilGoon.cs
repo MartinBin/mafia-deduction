@@ -6,4 +6,9 @@ public class EvilGoon : Character
     {
         throw new NotImplementedException();
     }
+
+    protected override void sayToChat()
+    {
+        throw new NotImplementedException();
+    }
 }

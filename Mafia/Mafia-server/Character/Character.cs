@@ -7,22 +7,33 @@ public abstract class Character:IDecorator
     public bool CanUseEvilChat { get; set; }
     public bool CanUseGoodChat { get; set; }
 
-    public void ExecuteTurn()
+    public void ExecuteTurn(string time)
     {
-        PerformMainAction();
-        UseAbilities();
+        if (time == "night")
+        {
+            PerformMainAction();
+        }else if (time == "vote")
+        {
+            UseAbility("vote");
+        }
+        else
+        {
+            sayToChat();
+        }
+        
     }
     
     protected abstract void PerformMainAction();
+    protected abstract void sayToChat();
     public void AddAbility(IAbilityStrategy ability)
     {
         abilities.Add(ability);
     }
 
-    public void UseAbilities()
+    public void UseAbility(string abilityName)
     {
         foreach (var ability in abilities)
-        {
+        {   if(ability.GetType().Name == abilityName)
             ability.UseAbility();
         }
     }

@@ -67,7 +67,7 @@ namespace Mafia_client {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Mafia-client;component/joinwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Mafia-client;V1.0.0.0;component/joinwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\JoinWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

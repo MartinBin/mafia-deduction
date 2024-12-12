@@ -5,4 +5,8 @@ public class Medic : Character
         throw new NotImplementedException();
     }
 
+    protected override void sayToChat()
+    {
+        throw new NotImplementedException();
+    }
 }

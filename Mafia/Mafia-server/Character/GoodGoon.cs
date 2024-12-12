@@ -4,4 +4,8 @@ public class GoodGoon : Character
     {
         throw new NotImplementedException();
     }
+    protected override void sayToChat()
+    {
+        throw new NotImplementedException();
+    }
 }
