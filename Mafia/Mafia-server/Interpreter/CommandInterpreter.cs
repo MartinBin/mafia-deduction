@@ -1,28 +1,38 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Mafia_server.Command;
 
 namespace Mafia_server.Interpreter
 {
     public class CommandInterpreter
     {
-        private readonly GameHub _gameHub;
+        private readonly CommandInvoker _commandInvoker;
 
-        public CommandInterpreter(GameHub gameHub)
+        public CommandInterpreter(CommandInvoker commandInvoker)
         {
-            _gameHub = gameHub;
+            _commandInvoker = commandInvoker;
         }
 
         public async Task InterpretAsync(string command)
         {
-            var parts = command.Split(' ');
-            ICommand commandObject = parts[0] switch
+            try
             {
-                "send" => new SendMessageCommand(_gameHub, parts[1], string.Join(' ', parts[2..])),
-                "start" => new StartGameCommand(_gameHub),
-                _ => throw new InvalidOperationException("Unknown command")
-            };
+                var parts = command.Split(' ');
+                var commandName = parts[0];
+                var parameters = parts[1..];
 
-            await commandObject.ExecuteAsync();
+                await _commandInvoker.ExecuteCommandAsync(commandName, parameters);
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Handle specific command not found exception
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                // Handle any other exceptions
+                Console.WriteLine($"An unexpected error occurred: {ex.Message}");
+            }
         }
     }
 }

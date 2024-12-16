@@ -1,25 +1,32 @@
-﻿using Mafia_server.Command;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace Mafia_server;
-
-public class CommandInvoker
+namespace Mafia_server.Command
 {
-    private readonly Dictionary<string, Func<string[], ICommand>> _commands = new Dictionary<string, Func<string[], ICommand>>();
-
-    public void RegisterCommand(string commandName, Func<string[], ICommand> commandFactory)
+    public class CommandInvoker
     {
-        if (!_commands.ContainsKey(commandName))
+        private readonly Dictionary<string, Func<string[], ICommand>> _commands = new Dictionary<string, Func<string[], ICommand>>();
+
+        public void RegisterCommand(string commandName, Func<string[], ICommand> commandFactory)
         {
-            _commands.Add(commandName, commandFactory);
+            if (!_commands.ContainsKey(commandName))
+            {
+                _commands.Add(commandName, commandFactory);
+            }
         }
-    }
 
-    public async Task ExecuteCommandAsync(string commandName, params string[] parameters)
-    {
-        if (_commands.ContainsKey(commandName))
+        public async Task ExecuteCommandAsync(string commandName, params string[] parameters)
         {
-            var command = _commands[commandName].Invoke(parameters);
-            await command.ExecuteAsync();
+            if (_commands.TryGetValue(commandName, out var commandFactory))
+            {
+                var command = commandFactory(parameters);
+                await command.ExecuteAsync();
+            }
+            else
+            {
+                throw new InvalidOperationException("Command not found");
+            }
         }
     }
 }

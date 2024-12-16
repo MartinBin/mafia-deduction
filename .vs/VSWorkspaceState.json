@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Mafia",
+    "\\Mafia\\Mafia-client",
+    "\\Mafia\\Mafia-server",
+    "\\Mafia\\Mafia-server\\Command",
+    "\\Mafia\\Mafia-server\\Interpreter"
   ],
-  "SelectedNode": "\\Mafia.sln",
+  "SelectedNode": "\\Mafia\\Mafia.sln",
   "PreviewInSolutionExplorer": false
 }

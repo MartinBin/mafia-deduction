@@ -1,0 +1,41 @@
+[16:57:21] Info: Server started. Press Ctrl+C to shut down.
+[17:00:41] Info: Server started. Press Ctrl+C to shut down.
+[17:01:03] Info: Server started. Press Ctrl+C to shut down.
+[17:11:51] Info: Server started. Press Ctrl+C to shut down.
+[17:12:49] Info: Player fgh (ID: 1) joined the game.
+[17:12:49] Info: Server: fgh has joined the game!
+[17:13:13] Info: Player aaaa (ID: 2) joined the game.
+[17:13:13] Info: Server: aaaa has joined the game!
+[17:13:21] Info: Player bbbb (ID: 3) joined the game.
+[17:13:21] Info: Server: bbbb has joined the game!
+[17:13:30] Info: fgh: /start
+[17:19:24] Info: Player fgh (ID: 1) disconnected
+[17:19:24] Info: Server: fgh has left the game!
+[17:19:24] Info: Server: fgh has left the game!
+[17:19:34] Info: Server started. Press Ctrl+C to shut down.
+[17:19:50] Info: Player sfg (ID: 1) joined the game.
+[17:19:50] Info: Server: sfg has joined the game!
+[17:19:56] Info: Player bbb (ID: 2) joined the game.
+[17:19:56] Info: Server: bbb has joined the game!
+[17:20:01] Info: bbb: StartGame
+[17:20:19] Info: sfg: StartGame
+[17:20:26] Info: sfg: /StartGame
+[17:20:54] Info: bbb: StartGame
+[17:23:55] Info: Server started. Press Ctrl+C to shut down.
+[17:24:37] Info: Player aaa (ID: 1) joined the game.
+[17:24:37] Info: Server: aaa has joined the game!
+[17:24:42] Info: Player bbb (ID: 2) joined the game.
+[17:24:42] Info: Server: bbb has joined the game!
+[17:24:47] Info: aaa: StartGame
+[17:24:51] Info: aaa: /StartGame
+[17:24:57] Info: Game started
+[17:24:57] Info: Exiting Lobby State
+[17:24:57] Info: Day Phase Started
+[17:25:25] Info: Player bbb (ID: 2) disconnected
+[17:25:25] Info: Server: bbb has left the game!
+[17:25:32] Info: Server started. Press Ctrl+C to shut down.
+[17:25:45] Info: Player aaa (ID: 1) joined the game.
+[17:25:45] Info: Server: aaa has joined the game!
+[17:25:54] Info: Player sdeffd (ID: 2) joined the game.
+[17:25:54] Info: Server: sdeffd has joined the game!
+[17:25:58] Info: Server: yo
