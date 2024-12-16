@@ -1,33 +1,47 @@
-﻿namespace Mafia_server.Observer;
-
-public class TerminalCommandHandler
+﻿namespace Mafia_server.Observer
 {
-    private readonly CommandSubject _commandSubject;
-    
-    public TerminalCommandHandler(CommandSubject commandSubject)
+    public class TerminalCommandHandler
     {
-        _commandSubject = commandSubject;
-    }
+        private readonly CommandSubject _commandSubject;
 
-    public async Task ReadCommandsFromTerminalAsync()
-    {
-        while (true)
+        public TerminalCommandHandler(CommandSubject commandSubject)
         {
-            string commandInput = await ReadCommandAsync();
-            if (!string.IsNullOrWhiteSpace(commandInput))
-            {
-                var commandParts = commandInput.Split(' ');
-                var command = commandParts[0];
-                var parameters = commandParts.Length > 1 ? commandParts.Skip(1).ToArray() : Array.Empty<string>();
+            _commandSubject = commandSubject;
+        }
 
-                await _commandSubject.NotifyObserversAsync(command, parameters);
+        public async Task ReadCommandsFromTerminalAsync()
+        {
+            while (true)
+            {
+                string commandInput = await ReadCommandAsync();
+                if (!string.IsNullOrWhiteSpace(commandInput))
+                {
+                    try
+                    {
+                        var commandParts = commandInput.Split(' ');
+                        var command = commandParts[0];
+                        var parameters = commandParts.Length > 1 ? commandParts.Skip(1).ToArray() : Array.Empty<string>();
+
+                        await _commandSubject.NotifyObserversAsync(command, parameters);
+                    }
+                    catch (InvalidOperationException ex)
+                    {
+                        // Handle specific command not found exception
+                        Console.WriteLine($"Error: {ex.Message}");
+                    }
+                    catch (Exception ex)
+                    {
+                        // Handle any other exceptions
+                        Console.WriteLine($"An unexpected error occurred: {ex.Message}");
+                    }
+                }
             }
         }
-    }
 
-    private async Task<string> ReadCommandAsync()
-    {
-        await Task.Delay(1000);
-        return Console.ReadLine();
+        private async Task<string> ReadCommandAsync()
+        {
+            await Task.Delay(1000);
+            return Console.ReadLine();
+        }
     }
 }

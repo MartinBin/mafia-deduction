@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Mafia_server.Command;
 using Mafia_server.Decorator;
 using Mafia_server.Observer;
+using Mafia_server.Interpreter;
 using Mafia_server.Log;
 
 namespace Mafia_server
@@ -11,9 +12,10 @@ namespace Mafia_server
     {
         private readonly GameManager gameManager;
         private readonly CommandInvoker _commandInvoker = new CommandInvoker();
+        private readonly CommandInterpreter _commandInterpreter;
         private static bool gameInProgress = false;
         private static Logger logger = Logger.getInstance;
-        
+
         private static Timer _stateTimer;
         private static int _currentTimeRemaining;
         private IHubContext<GameHub> _hubContext;
@@ -24,8 +26,14 @@ namespace Mafia_server
             StateContext = new GameStateContext(this);
             this.gameManager = gameManager;
             _hubContext = hubContext;
+
+            // Register commands
             _commandInvoker.RegisterCommand("StartGame", _ => new StartGameCommand(this));
             _commandInvoker.RegisterCommand("SendMessage", parameters => new SendMessageCommand(this, "Server", string.Join(" ", parameters)));
+
+            // Initialize CommandInterpreter
+            _commandInterpreter = new CommandInterpreter(_commandInvoker);
+
             commandSubject.RegisterObserver(this);
 
             // Set up logger
@@ -33,8 +41,6 @@ namespace Mafia_server
             var fileHandler = new FileLoggerHandler(AppDomain.CurrentDomain.BaseDirectory);
             consoleHandler.SetNext(fileHandler);
             logger.SetHandlerChain(consoleHandler);
-
-
         }
 
         public async Task BroadcastTimeRemaining(int timeMs)
@@ -56,22 +62,22 @@ namespace Mafia_server
                 await Clients.Caller.SendAsync("Error", "Only the earliest joined player can start the game");
                 return;
             }
-            gameInProgress=true;
+            gameInProgress = true;
             List<Player> players = Globals.clients.Values.Select(c => c.Player).ToList();
             gameManager.AssignCharactersToPlayers(players);
-            
+
             string clientImagePath = "path/to/image.png";
             string clientLabel = "VIP";
             string clientInfo = "Important character information.";
-            
+
             foreach (var player in players)
             {
                 IDecorator character = player.Character;
-        
+
                 IDecorator decoratedCharacter = new ImageDecorator(
                     new LabelDecorator(
-                        new InfoDecorator(character, clientInfo), 
-                        clientLabel), 
+                        new InfoDecorator(character, clientInfo),
+                        clientLabel),
                     clientImagePath);
 
                 decoratedCharacter.Render();
@@ -81,15 +87,16 @@ namespace Mafia_server
                 await Clients.Client(client.ConnectionId).SendAsync("AssignedCharacter", client.Player.Character.GetType().Name);
                 await Clients.Client(client.ConnectionId).SendAsync("CanUseEvilChat", client.Player.Character.CanUseEvilChat);
             }
-            
+
             await Task.Delay(100);
-            
+
             await Clients.All.SendAsync("GameStarted");
             await PlayerList();
             logger.Log(LogType.Info, $"Game started");
             await Task.Delay(100);
-            await StateContext.TransitionTo(new DayState(this,_hubContext,StateContext));
+            await StateContext.TransitionTo(new DayState(this, _hubContext, StateContext));
         }
+
         public async Task Vote(int targetId)
         {
             var currentState = StateContext.GetCurrentState();
@@ -120,6 +127,7 @@ namespace Mafia_server
         {
             return Globals.clients.Values.FirstOrDefault(c => c.ConnectionId == Context.ConnectionId)?.PlayerID ?? -1;
         }
+
         public async Task PlayerList()
         {
             var players = Globals.clients.Values.Select(c => new { c.PlayerID, c.Username }).ToList();
@@ -128,15 +136,15 @@ namespace Mafia_server
 
         public async Task JoinGame(string username)
         {
-            // Assign a player ID
             int playerId = Globals.AssignPlayerId();
-            
+
             if (playerId != -1)
             {
                 await Groups.AddToGroupAsync(Context.ConnectionId, "Players");
                 Globals.clients[playerId] = new Client(playerId, username, Context.ConnectionId);
-                
-                if(gameInProgress){
+
+                if (gameInProgress)
+                {
                     await Clients.Caller.SendAsync("GameInProgress", playerId);
                 }
                 else
@@ -157,7 +165,7 @@ namespace Mafia_server
                 logger.Log(LogType.Warning, "Server full");
             }
         }
-        
+
         private async Task CheckAndNotifyGameReady()
         {
             if (Globals.clients.Count >= Constants.MIN_PLAYERS_TO_START)
@@ -195,39 +203,38 @@ namespace Mafia_server
 
             await base.OnDisconnectedAsync(exception);
         }
+
         private async Task UpdatePlayerList()
         {
             var players = Globals.clients.Values.Select(c => new { c.PlayerID, c.Username }).ToList();
             await Clients.All.SendAsync("PlayerList", players);
         }
-        // Add other game-related methods here
-        
+
         public async Task SendMessage(string username, string message)
         {
             string fullMessage = $"{username}: {message}";
             logger.Log(LogType.Info, fullMessage);
             await Clients.All.SendAsync("ReceiveMessage", username, message);
         }
-        
-        
-        public async Task SendGeneralMessage(int id,string message)
+
+        public async Task SendGeneralMessage(int id, string message)
         {
             string fullMessage = $"{id}: {message}";
             logger.Log(LogType.Info, fullMessage);
-            await Clients.All.SendAsync("ReceiveGeneralMessage",id, message);
+            await Clients.All.SendAsync("ReceiveGeneralMessage", id, message);
         }
 
-        public async Task SendEvilMessage(int id,string message)
+        public async Task SendEvilMessage(int id, string message)
         {
             string fullMessage = $"{id}: {message}";
             logger.Log(LogType.Info, fullMessage);
-            var players = Globals.clients.Values.Where(x=>x.Player.Character.CanUseEvilChat).ToList();
+            var players = Globals.clients.Values.Where(x => x.Player.Character.CanUseEvilChat).ToList();
             foreach (var player in players)
             {
-                await Clients.Client(player.ConnectionId).SendAsync("ReceiveEvilMessage",id, message);
+                await Clients.Client(player.ConnectionId).SendAsync("ReceiveEvilMessage", id, message);
             }
         }
-        
+
         public async Task UpdateAsync(string command, params string[] parameters)
         {
             await ExecuteCommand(command, parameters);
@@ -237,5 +244,24 @@ namespace Mafia_server
         {
             await _commandInvoker.ExecuteCommandAsync(commandName, parameters);
         }
+
+        public async Task InterpretCommand(string command)
+        {
+            try
+            {
+                await _commandInterpreter.InterpretAsync(command);
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Handle specific command not found exception
+                await Clients.Caller.SendAsync("Error", $"Command not found: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                // Handle any other exceptions
+                await Clients.Caller.SendAsync("Error", $"An unexpected error occurred: {ex.Message}");
+            }
+        }
+
     }
 }
