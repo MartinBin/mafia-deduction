@@ -42,3 +42,14 @@
 [17:28:33] Info: Server started. Press Ctrl+C to shut down.
 [17:28:50] Info: Player sdf (ID: 1) joined the game.
 [17:28:50] Info: Server: sdf has joined the game!
+[17:31:52] Info: Server started. Press Ctrl+C to shut down.
+[17:32:17] Info: Player sadfs (ID: 1) joined the game.
+[17:32:17] Info: Server: sadfs has joined the game!
+[17:37:04] Info: Server started. Press Ctrl+C to shut down.
+[17:37:19] Info: Player sdfsdf (ID: 1) joined the game.
+[17:37:19] Info: Server: sdfsdf has joined the game!
+[17:37:26] Info: Game started
+[17:37:26] Info: Exiting Lobby State
+[17:37:26] Info: Day Phase Started
+[17:37:28] Info: Player sdfsdf (ID: 1) disconnected
+[17:37:28] Info: Server: sdfsdf has left the game!

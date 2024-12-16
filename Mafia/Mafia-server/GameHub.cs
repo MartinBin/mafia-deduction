@@ -247,7 +247,21 @@ namespace Mafia_server
 
         public async Task InterpretCommand(string command)
         {
-            await _commandInterpreter.InterpretAsync(command);
+            try
+            {
+                await _commandInterpreter.InterpretAsync(command);
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Handle specific command not found exception
+                await Clients.Caller.SendAsync("Error", $"Command not found: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                // Handle any other exceptions
+                await Clients.Caller.SendAsync("Error", $"An unexpected error occurred: {ex.Message}");
+            }
         }
+
     }
 }
