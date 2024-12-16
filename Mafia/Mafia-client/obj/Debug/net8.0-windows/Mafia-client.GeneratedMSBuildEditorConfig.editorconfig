@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Mafia_client
-build_property.ProjectDir = C:\Users\robot\Documents\GitHub\mafia-deduction\Mafia\Mafia-client\
+build_property.ProjectDir = C:\Users\lukso\source\repos\mafia-deduction2\Mafia\Mafia-client\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

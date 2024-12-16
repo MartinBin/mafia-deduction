@@ -1,18 +1,18 @@
 ﻿Mafia-client
-
+1.0.0.0
 
 winexe
 C#
 .cs
-C:\Users\lukso\source\repos\mafia-deduction2\Mafia\Mafia-client\obj\Debug\net8.0-windows\
+C:\Users\lukso\Source\Repos\mafia-deduction2\Mafia\Mafia-client\obj\Debug\net8.0-windows\
 Mafia_client
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\lukso\source\repos\mafia-deduction2\Mafia\Mafia-client\App.xaml
+C:\Users\lukso\Source\Repos\mafia-deduction2\Mafia\Mafia-client\App.xaml
 51028608780
 
-251413515115
+27-81431418
 198-688555687
 GameWindow.xaml;JoinWindow.xaml;LobbyControl.xaml;MainMenuControl.xaml;MainWindow.xaml;
 

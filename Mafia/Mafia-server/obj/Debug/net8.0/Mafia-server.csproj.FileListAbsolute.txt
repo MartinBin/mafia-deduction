@@ -102,3 +102,6 @@ C:\Users\manta\Desktop\Github\Mano\mafia-deduction\Mafia\Mafia-server\obj\Debug\
 C:\Users\manta\Desktop\Github\Mano\mafia-deduction\Mafia\Mafia-server\obj\Debug\net8.0\Mafia-server.pdb
 C:\Users\manta\Desktop\Github\Mano\mafia-deduction\Mafia\Mafia-server\obj\Debug\net8.0\Mafia-server.genruntimeconfig.cache
 C:\Users\manta\Desktop\Github\Mano\mafia-deduction\Mafia\Mafia-server\obj\Debug\net8.0\ref\Mafia-server.dll
+C:\Users\lukso\source\repos\mafia-deduction2\Mafia\Mafia-server\obj\Debug\net8.0\Mafia-server.dll
+C:\Users\lukso\source\repos\mafia-deduction2\Mafia\Mafia-server\obj\Debug\net8.0\refint\Mafia-server.dll
+C:\Users\lukso\source\repos\mafia-deduction2\Mafia\Mafia-server\obj\Debug\net8.0\Mafia-server.pdb
