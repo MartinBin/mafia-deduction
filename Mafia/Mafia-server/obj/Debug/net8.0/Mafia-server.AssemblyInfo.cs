@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mafia-server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+505adb9c1767466ad5fdf6e2f6c5a31ae2b0a886")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mafia-server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mafia-server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
