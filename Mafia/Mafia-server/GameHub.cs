@@ -28,8 +28,8 @@ namespace Mafia_server
             _hubContext = hubContext;
 
             // Register commands
-            _commandInvoker.RegisterCommand("start", _ => new StartGameCommand(this));
-            _commandInvoker.RegisterCommand("send", parameters => new SendMessageCommand(this, "Server", string.Join(" ", parameters)));
+            _commandInvoker.RegisterCommand("StartGame", _ => new StartGameCommand(this));
+            _commandInvoker.RegisterCommand("SendMessage", parameters => new SendMessageCommand(this, "Server", string.Join(" ", parameters)));
 
             // Initialize CommandInterpreter
             _commandInterpreter = new CommandInterpreter(_commandInvoker);

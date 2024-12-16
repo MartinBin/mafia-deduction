@@ -39,3 +39,6 @@
 [17:25:54] Info: Player sdeffd (ID: 2) joined the game.
 [17:25:54] Info: Server: sdeffd has joined the game!
 [17:25:58] Info: Server: yo
+[17:28:33] Info: Server started. Press Ctrl+C to shut down.
+[17:28:50] Info: Player sdf (ID: 1) joined the game.
+[17:28:50] Info: Server: sdf has joined the game!
