@@ -1,0 +1,11 @@
+[21:37:42] Info: Server started. Press Ctrl+C to shut down.
+[21:39:48] Info: Player asd (ID: 1) joined the game.
+[21:39:48] Info: Server: asd has joined the game!
+[21:39:59] Info: Player vfds (ID: 2) joined the game.
+[21:39:59] Info: Server: vfds has joined the game!
+[21:41:32] Info: Game started
+[21:41:32] Info: Exiting Lobby State
+[21:41:32] Info: Day Phase Started
+[21:43:55] Info: Server: hellp
+[21:44:49] Info: Player vfds (ID: 2) disconnected
+[21:44:49] Info: Server: vfds has left the game!

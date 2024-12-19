@@ -1,7 +1,9 @@
 using System.Windows;
 using System.Windows.Controls;
+using Mafia_client.Visitor;
 
-public class GameElement : IGameComponent
+
+public abstract class GameElement : IGameComponent
 {
     protected internal UIElement element;
     
@@ -16,4 +18,5 @@ public class GameElement : IGameComponent
     }
     
     public virtual void Update() { }
+    public abstract void Accept(IGameComponentVisitor visitor);
 }

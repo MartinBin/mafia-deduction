@@ -1,5 +1,6 @@
 using System.Windows.Controls;
 using Mafia_client.Prototype;
+using Mafia_client.Visitor;
 
 public class PlayerRoleLabel : GameElement
 {
@@ -15,5 +16,10 @@ public class PlayerRoleLabel : GameElement
         Canvas.SetLeft(element, x - 50); // Center the 100px wide label
         Canvas.SetTop(element, y - 80);  // Place above name label
         canvas.Children.Add(element);
+    }
+    
+    public override void Accept(IGameComponentVisitor visitor)
+    {
+        visitor.Visit(this);
     }
 }

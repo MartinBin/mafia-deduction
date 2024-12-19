@@ -12,6 +12,7 @@ using Mafia_client.Factory;
 using Mafia_client.Prototype;
 using System.Windows.Media.Imaging;
 using Mafia_client.Client;
+using Mafia_client.Visitor;
 using Microsoft.AspNetCore.SignalR.Client;
 
 namespace Mafia_client;
@@ -205,12 +206,8 @@ public partial class GameWindow : UserControl, INotifyPropertyChanged, IDisposab
     {
         if (!player.IsAlive)
         {
-            var avatar = player.Visual.GetComponent<PlayerAvatar>();
-            if (avatar?.element is Ellipse ellipse)
-            {
-                ellipse.Fill = new SolidColorBrush(Colors.Gray);
-                ellipse.Opacity = 0.5;
-            }
+            var deathVisitor = new DeathEffectVisitor();
+            player.Visual.Accept(deathVisitor);
         }
     }
         private void SetupSignalREventHandlers()

@@ -1,5 +1,6 @@
 using System.Windows.Controls;
 using Mafia_client.Prototype;
+using Mafia_client.Visitor;
 
 public class PlayerAvatar : GameElement
 {
@@ -12,5 +13,9 @@ public class PlayerAvatar : GameElement
         Canvas.SetLeft(element, x - 25); // Center the 50px wide avatar
         Canvas.SetTop(element, y - 25);  // Center the 50px tall avatar
         canvas.Children.Add(element);
+    }
+    public override void Accept(IGameComponentVisitor visitor)
+    {
+        visitor.Visit(this);
     }
 }

@@ -1,4 +1,5 @@
 using System.Windows.Controls;
+using Mafia_client.Visitor;
 
 public class PlayerComposite : IGameComponent
 {
@@ -34,6 +35,16 @@ public class PlayerComposite : IGameComponent
         foreach (var component in _components)
         {
             component.Update();
+        }
+    }
+    
+    
+    public void Accept(IGameComponentVisitor visitor)
+    {
+        visitor.Visit(this);
+        foreach (var component in _components)
+        {
+            component.Accept(visitor);
         }
     }
 }

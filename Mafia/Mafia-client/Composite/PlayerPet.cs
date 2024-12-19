@@ -1,5 +1,6 @@
 using System.Windows.Controls;
 using Mafia_client.Factory;
+using Mafia_client.Visitor;
 
 public class PlayerPet : GameElement
 {
@@ -19,5 +20,10 @@ public class PlayerPet : GameElement
             Canvas.SetTop(element, y - 15);   // Align vertically with avatar
             canvas.Children.Add(element);
         }
+    }
+    
+    public override void Accept(IGameComponentVisitor visitor)
+    {
+        visitor.Visit(this);
     }
 }
