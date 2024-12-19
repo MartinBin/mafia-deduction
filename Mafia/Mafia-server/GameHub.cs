@@ -10,7 +10,7 @@ namespace Mafia_server
 {
     public class GameHub : Hub, IObserver
     {
-        private readonly GameManager gameManager;
+        private readonly GameManagerProxy gameManagerProxy;
         private readonly CommandInvoker _commandInvoker = new CommandInvoker();
         private readonly CommandInterpreter _commandInterpreter;
         private static bool gameInProgress = false;
@@ -24,7 +24,7 @@ namespace Mafia_server
         public GameHub(GameManager gameManager, CommandSubject commandSubject, IHubContext<GameHub> hubContext)
         {
             StateContext = new GameStateContext(this);
-            this.gameManager = gameManager;
+            this.gameManagerProxy = new GameManagerProxy(gameManager);
             _hubContext = hubContext;
 
             // Register commands
@@ -64,7 +64,8 @@ namespace Mafia_server
             }
             gameInProgress = true;
             List<Player> players = Globals.clients.Values.Select(c => c.Player).ToList();
-            gameManager.AssignCharactersToPlayers(players);
+            gameManagerProxy.AssignCharactersToPlayers(players);
+            gameManagerProxy.RemoveAccess();
 
             string clientImagePath = "path/to/image.png";
             string clientLabel = "VIP";
