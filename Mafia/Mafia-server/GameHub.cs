@@ -5,6 +5,8 @@ using Mafia_server.Decorator;
 using Mafia_server.Observer;
 using Mafia_server.Interpreter;
 using Mafia_server.Log;
+using Mafia_server.Iterator;
+using System.Net;
 
 namespace Mafia_server
 {
@@ -15,6 +17,8 @@ namespace Mafia_server
         private readonly CommandInterpreter _commandInterpreter;
         private static bool gameInProgress = false;
         private static Logger logger = Logger.getInstance;
+
+        private static ServerClients _serverClients;
 
         private static Timer _stateTimer;
         private static int _currentTimeRemaining;
@@ -41,6 +45,9 @@ namespace Mafia_server
             var fileHandler = new FileLoggerHandler(AppDomain.CurrentDomain.BaseDirectory);
             consoleHandler.SetNext(fileHandler);
             logger.SetHandlerChain(consoleHandler);
+
+            // Iterator
+            _serverClients = new ServerClients();
         }
 
         public async Task BroadcastTimeRemaining(int timeMs)
@@ -142,7 +149,8 @@ namespace Mafia_server
             if (playerId != -1)
             {
                 await Groups.AddToGroupAsync(Context.ConnectionId, "Players");
-                Globals.clients[playerId] = new Client(playerId, username, Context.ConnectionId);
+                var newClient = new Client(playerId, username, Context.ConnectionId);
+                Globals.clients[playerId] = newClient;
 
                 if (gameInProgress)
                 {
@@ -158,6 +166,11 @@ namespace Mafia_server
                     string joinMessage = $"{username} has joined the game!";
                     await SendMessage("Server", joinMessage);
                     await CheckAndNotifyGameReady();
+
+                    // Iterator
+                    _serverClients.AddClient(newClient);
+                    await LogClients();
+
                 }
             }
             else
@@ -191,6 +204,11 @@ namespace Mafia_server
                 logger.Log(LogType.Info, $"Player {client.Username} (ID: {client.PlayerID}) disconnected");
                 string leaveMessage = $"{client.Username} has left the game!";
                 await SendMessage("Server", leaveMessage);
+
+                // Iterator
+                _serverClients.RemoveClient(client);
+                await LogClients();
+
                 if (gameInProgress)
                 {
                     await PlayerList();
@@ -261,6 +279,20 @@ namespace Mafia_server
             {
                 // Handle any other exceptions
                 await Clients.Caller.SendAsync("Error", $"An unexpected error occurred: {ex.Message}");
+            }
+        }
+
+        public async Task LogClients()
+        {
+            IIterator<Client> iterator = _serverClients.CreateIterator();
+            logger.Log(LogType.Info, "");
+            logger.Log(LogType.Info, "Current server clients:");
+            while (iterator.HasNext())
+            {
+                iterator.MoveNext();
+                Client clnt = iterator.CurrentItem();
+                string str = $"Client: {clnt.Username} ID:({clnt.PlayerID})";
+                logger.Log(LogType.Info, str);
             }
         }
 
