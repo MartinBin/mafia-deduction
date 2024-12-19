@@ -1,5 +1,5 @@
 namespace Mafia_server;
-public class GameManager
+public class GameManager : IGameManager
 {
     private List<CharacterFactory> goodFactories;
     private List<CharacterFactory> evilFactories;
